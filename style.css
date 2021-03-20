@@ -1,10 +1,22 @@
-header {
-    border: 2px orange dashed;
 
-}
 
 .jumbotron {
     text-align: center;
     color: white;
     background-color: rgb(48, 45, 45);
+}
+
+
+
+
+
+/* debugging borders. Remove me once no longer needed :) */ 
+
+header {
+    border: 2px orange dashed;
+}
+
+#seachForaCitySectionID {
+    border: 2px blue dashed;
+
 }
