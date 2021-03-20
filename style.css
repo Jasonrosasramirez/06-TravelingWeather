@@ -1,12 +1,16 @@
 
 
+
 .jumbotron {
     text-align: center;
     color: white;
     background-color: rgb(48, 45, 45);
 }
 
-
+#searchSubmitButton {
+    background-color: blue;
+    color:white;
+}
 
 
 
