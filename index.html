@@ -26,10 +26,19 @@
         <div id = "seachForaCitySectionID">
             <!-- Displays the search bar and some applicable cities -->
 
-            <form action="/action_page.php">
+            <form action="/action_page.php" id = "searchBarID">
+                <label for = "search"> Search for a City: </label> <br>
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit" id = "searchSubmitButton"> <i class="fas fa-search-location"></i> </button> <!-- Icon from font awesome -->
             </form>
+
+            <div id = "citySearchHistory">
+                <!-- Local Storage used Here -->
+                <H3> Recent Search History </H3>
+                <p> Austin, TX </p>
+                <p> Seattle, WA </p>
+                <p> Minneapolis, MN </p>
+            </div>
 
         </div>
 
@@ -40,6 +49,12 @@
 
             <div id = "forecastDisplayDailyDetailsID">
                 <!-- provides details on the day selected -->
+
+                <h2> City Display Variable </h2>
+                <p> temperature <span> 90.9 F </span> </p>
+                <p> Humidity <span> 41 % </span> </p>
+                <p> Wind Speed <span> 4.7 MPH </span> </p>
+                <p> UV Index <span> 9.49 </span> </p>
 
 
             </div>

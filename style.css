@@ -28,12 +28,17 @@ header {
     border: 2px orange dashed;
 }
 
-#forecastDisplayFiveDayID,
-#forecastDisplayDailyDetailsID,
-#seachForaCitySectionID {
+
+#seachForaCitySectionID,
+#forecastDisplayContainerSectionID {
     border: 2px blue dashed;
+    margin: 10px;
 }
 
-#forecastDisplayContainerSectionID {
-    border: 2px purple dashed;
+#searchBarID,
+#citySearchHistory,
+#forecastDisplayFiveDayID,
+#forecastDisplayDailyDetailsID {
+    border: 2px purple dotted;
+    margin: 10px;
 }
