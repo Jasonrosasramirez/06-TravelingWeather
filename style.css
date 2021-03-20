@@ -1,0 +1,10 @@
+header {
+    border: 2px orange dashed;
+
+}
+
+.jumbotron {
+    text-align: center;
+    color: white;
+    background-color: rgb(48, 45, 45);
+}
