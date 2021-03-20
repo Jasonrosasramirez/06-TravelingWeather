@@ -1,4 +1,7 @@
+:root {
+    --blueIconColor: rgb(0, 119, 255); /* Used for the search icon and five day forecast display */ 
 
+}
 
 
 .jumbotron {
@@ -8,7 +11,7 @@
 }
 
 #searchSubmitButton {
-    background-color: blue;
+    background-color: var(--blueIconColor);
     color:white;
 }
 
@@ -16,11 +19,21 @@
 
 /* debugging borders. Remove me once no longer needed :) */ 
 
+
 header {
     border: 2px orange dashed;
 }
 
+.container {
+    border: 2px orange dashed;
+}
+
+#forecastDisplayFiveDayID,
+#forecastDisplayDailyDetailsID,
 #seachForaCitySectionID {
     border: 2px blue dashed;
+}
 
+#forecastDisplayContainerSectionID {
+    border: 2px purple dashed;
 }
