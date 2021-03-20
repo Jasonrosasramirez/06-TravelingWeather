@@ -42,3 +42,18 @@ header {
     border: 2px purple dotted;
     margin: 10px;
 }
+
+#forecastDisplayFiveDayCardsID {
+    border: 2px green dotted;
+    margin: 2px;
+    padding: 2px;
+
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.cardBorder {
+    border: 2px orange dashed;
+    margin: 2px;
+}
