@@ -43,6 +43,13 @@ header {
     margin: 10px;
 }
 
+.searchHistoryCity {
+    border: 2px green dotted;
+    margin: 2px;
+}
+
+
+
 #forecastDisplayFiveDayCardsID {
     border: 2px green dotted;
     margin: 2px;
