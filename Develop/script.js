@@ -1,22 +1,20 @@
 var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div
 var citySearchHistoryE1 = $("#citySearchHistory"); 
-
-var searchInputE1 = $("#searchInput");
+var recentCitySearch1E1 = $("#recentCitySearch1");
 
 
 searchSubmitButtonE1.on("click", function(event) {
     event.preventDefault();
 
-    var citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored
-    console.log("CitySearchBoxText is __ " + citySearchBoxText);
-    
-    // Where we want the text stored.  
-    var recentCitySearch1E1 = $("#recentCitySearch1");
+    var citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored. What is being typed into the search box. Will eventially be a drop down list
+    console.log(citySearchBoxText + " Was typed into the search box"); // delete me when no longer needed :) 
 
-    recentCitySearch1E1.text(citySearchBoxText);
-    console.log("what is the recent Search City 1 -- + -- " + recentCitySearch1E1.textContent);
+    recentCitySearch1E1.text(citySearchBoxText); // displays CitySearchBoxText on screen
     
-    //recentCitySearch1E1.text("Seattle, WA Testing 1"); // this prints correctly :) 
+    
+
+    
+    
 
 })
 
