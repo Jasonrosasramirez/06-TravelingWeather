@@ -7,11 +7,8 @@ var searchInputE1 = $("#searchInput");
 searchSubmitButtonE1.on("click", function(event) {
     event.preventDefault();
 
-    var TestMe = event.target.value;1
-    console.log("test me " + TestMe);
-
-    var searchTypeIn = document.getElementById("searchInput").value;
-    console.log("what is the text input? " + searchTypeIn);
+    var typedIntoCitySearch = document.getElementById("searchInput").value;
+    console.log("what is typed into the typedIntoCitySearch " + typedIntoCitySearch);
 
 
 })
@@ -19,8 +16,7 @@ searchSubmitButtonE1.on("click", function(event) {
 
 
 
-$("#citySearchHistory .searchHistoryCityBlock").val(localStorage.getItem("recentCitySearch1")); //calls the local storage
-// $(DivContainer  theChild).val(localStorage.getItem("lineID where it was saved")) 
+
 
 
 // Debug section 
@@ -32,6 +28,34 @@ recentCitySearch1E1.text("Seattle, WA Testing 1");
 
 
 
+/*
+
+
+searchSubmitButtonE1.on("click", function(event) {
+    event.preventDefault();
+
+    var TestMe = event.target;
+
+    console.log("searchSubmitButton has been clicked");
+    console.log("Test me is " + TestMe);
+
+    var saveText = $(this).find(".searchHistoryCityBlock").val(); // what we are storing
+    var searchHistoryBlock = $(this).parent().attr("id");  // what we are storing to
+
+
+    console.log("The save text is " + saveText);
+
+    localStorage.setItem(searchHistoryBlock, saveText); 
+ // localStorage.setItem(what you're storing to, what you are actually storing)
+
+})
+
+
+$("#citySearchHistory .searchHistoryCityBlock").val(localStorage.getItem("recentCitySearch1")); //calls the local storage
+// $(DivContainer  theChild).val(localStorage.getItem("lineID where it was saved")) 
+
+
+*/ 
 
 
 
@@ -78,27 +102,3 @@ getAPI(badRequestURL);
 
 
 
-/*
-
-
-searchSubmitButtonE1.on("click", function(event) {
-    event.preventDefault();
-
-    var TestMe = event.target;
-
-    console.log("searchSubmitButton has been clicked");
-    console.log("Test me is " + TestMe);
-
-    var saveText = $(this).find(".searchHistoryCityBlock").val(); // what we are storing
-    var searchHistoryBlock = $(this).parent().attr("id");  // what we are storing to
-
-
-    console.log("The save text is " + saveText);
-
-    localStorage.setItem(searchHistoryBlock, saveText); 
- // localStorage.setItem(what you're storing to, what you are actually storing)
-
-})
-
-
-*/ 
