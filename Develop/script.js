@@ -7,9 +7,16 @@ var searchInputE1 = $("#searchInput");
 searchSubmitButtonE1.on("click", function(event) {
     event.preventDefault();
 
-    var typedIntoCitySearch = document.getElementById("searchInput").value;
-    console.log("what is typed into the typedIntoCitySearch " + typedIntoCitySearch);
+    var citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored
+    console.log("CitySearchBoxText is __ " + citySearchBoxText);
+    
+    // Where we want the text stored.  
+    var recentCitySearch1E1 = $("#recentCitySearch1");
 
+    recentCitySearch1E1.text(citySearchBoxText);
+    console.log("what is the recent Search City 1 -- + -- " + recentCitySearch1E1.textContent);
+    
+    //recentCitySearch1E1.text("Seattle, WA Testing 1"); // this prints correctly :) 
 
 })
 
@@ -20,8 +27,7 @@ searchSubmitButtonE1.on("click", function(event) {
 
 
 // Debug section 
-var recentCitySearch1E1 = $("#recentCitySearch1");
-recentCitySearch1E1.text("Seattle, WA Testing 1");
+
  
 
 
