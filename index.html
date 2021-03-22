@@ -26,29 +26,26 @@
         <div id = "seachForaCitySectionID">
             <!-- Displays the search bar and some applicable cities -->
 
-            <form action="/action_page.php" id = "searchBarID">
+            <form  id = "searchBarID"> <!-- action="/action_page.php" removed for testing -->
                 <label for = "search"> Search for a City: </label> <br>
-                <input type="text" placeholder="Search.." name="search">
+                <input type="text" id = "searchInput" placeholder="Search.." name="search">
                 <button type="submit" id = "searchSubmitButton"> <i class="fas fa-search-location"></i> </button> <!-- Icon from font awesome -->
             </form>
+
 
             <div id = "citySearchHistory">
                 <!-- Local Storage used Here -->
                 <H3> Recent Search History </H3>
                 
-                <div class = "searchHistoryCity">
-                    <p> Search History 1 </p>
+                <div class = "searchHistoryCityBlock">
+                    <p id = "recentCitySearch1"> Search History 1 </p>
                 </div>
                 
-                <div class = "searchHistoryCity">
+                <div class = "searchHistoryCityBlock">
                     <p> Search History 2 </p>
                 </div>
 
-                <div class = "searchHistoryCity">
-                    <p> Search History 3 </p>
-                </div>
-
-                <div class = "searchHistoryCity">
+                <div class = "searchHistoryCityBlock">
                     <p> Minneapolis, MN </p>
                 </div>
 
