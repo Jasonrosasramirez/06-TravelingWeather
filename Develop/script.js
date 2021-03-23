@@ -1,40 +1,23 @@
-var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div
-var citySearchHistoryE1 = $("#citySearchHistory"); 
-var recentCitySearch1E1 = $("#recentCitySearch1");
-
-
+var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div. Links to the submit button. 
+var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent search history
 
 
 searchSubmitButtonE1.on("click", function(event) {
+    // Once the search button is clicked, the search is displayed on the search history. Pressing enter on the seach bar also counts as a button press. 
     event.preventDefault();
 
-    // What is being typed into the search box. Will eventially be a drop down list
-    var citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored. 
-    var citySearchBoxSave = recentCitySearch1E1.text(citySearchBoxText); // Where we are storing it to.  
-    citySearchBoxSave; // Displays CitySearchBoxText on screen.
-
-    console.log(citySearchBoxText + " | Was typed into the search box"); // delete me when no longer needed :) 
+    var citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored. using .value because it is an input.   
+    recentCitySearch1E1.text(citySearchBoxText); // Displays CitySearchBoxText on screen. .text is a jquerry method
     
-    localStorage.setItem(citySearchBoxSave, citySearchBoxText); 
- // localStorage.setItem(what you're storing to, what you are actually storing)
-  
+    localStorage.setItem("searchInputStorage", citySearchBoxText); 
+  //localStorage.setItem(what you're storing to, what you are actually storing)
 
+  console.log("--+-- search button pressed | " + citySearchBoxText);
 })
 
-var localStorageContainer = $("#recentCitySearch1").val(localStorage.getItem("searchInput"));
-localStorageContainer;
 
-
-
-// recentCitySearch1
-// $("#citySearchHistory .searchHistoryCityBlock").val(localStorage.getItem("recentCitySearch1")); //calls the local storage
-// $(DivContainer  theChild).val(localStorage.getItem("lineID where it was saved")) 
-
-
-
-
-
- 
+$("#recentCitySearch1").text(localStorage.getItem("searchInputStorage"));
+//$(where is this displayed to).text(localStorage.getItem(where it was saved to using setItem));
 
 
 
