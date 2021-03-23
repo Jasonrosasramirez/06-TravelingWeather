@@ -10,14 +10,13 @@ searchSubmitButtonE1.on("click", function(event) {
     event.preventDefault();
 
     var citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored. using .value because it is an input.   
-    recentCitySearch1E1.text(citySearchBoxText); // Displays CitySearchBoxText on screen. .text is a jquerry method
-    
-    localStorage.setItem("searchInputStorage", citySearchBoxText); 
-  //localStorage.setItem(what you're storing to, what you are actually storing)
+    recentCitySearch1E1.text(citySearchBoxText); // Displays CitySearchBoxText on screen. .text is a jquerry method  
+    localStorage.setItem("searchInputStorage", citySearchBoxText); //localStorage.setItem(what you're storing to, what you are actually storing)
+  
+    searchHistoryContainer1E1.removeAttribute("class") // removes .disapear which makes search item appear on screen
+    searchHistoryContainer1E1.setAttribute("class", "searchHistoryCityBlock");
 
-    searchHistoryContainer1E1.removeAttribute("class", "disappear")
-// circle back to complete items appearing and dissapearing. Using add and remove attribute for .dissapear.
-})
+}) // circle back to complete items appearing and dissapearing. Using add and remove attribute for .dissapear.
 
 $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(where is this displayed to).text(localStorage.getItem(where it was saved to using setItem));
 
