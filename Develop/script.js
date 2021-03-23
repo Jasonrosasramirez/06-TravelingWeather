@@ -2,6 +2,7 @@ var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID 
 var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent search history
 
 
+// circle back to complete items appearing and dissapearing. Using add and remove attribute for .dissapear.
 searchSubmitButtonE1.on("click", function(event) {
     // Once the search button is clicked, the search is displayed on the search history. Pressing enter on the seach bar also counts as a button press. 
     event.preventDefault();
@@ -14,7 +15,6 @@ searchSubmitButtonE1.on("click", function(event) {
 
   console.log("--+-- search button pressed | " + citySearchBoxText);
 })
-
 
 $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage"));
 //$(where is this displayed to).text(localStorage.getItem(where it was saved to using setItem));

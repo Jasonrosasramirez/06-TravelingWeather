@@ -1,6 +1,5 @@
 :root {
     --blueIconColor: rgb(0, 119, 255); /* Used for the search icon and five day forecast display */ 
-
 }
 
 
@@ -15,7 +14,15 @@
     color:white;
 }
 
+.cardBorder {
+    width: 160px;
+    background-color: var(--blueIconColor);
+    margin: 2px;
+}
 
+.disappear {
+    display: none; /* this will hide the question when the class is changed */ 
+}
 
 /* debugging borders. Remove me once no longer needed :) */ 
 
@@ -60,5 +67,4 @@ header {
 
 .cardBorder {
     border: 2px orange dashed;
-    margin: 2px;
 }
