@@ -12,11 +12,18 @@
 #searchSubmitButton {
     background-color: var(--blueIconColor);
     color:white;
+    border: none;
+}
+
+#indexDisplay {
+    background-color: red;
+    color: white;
 }
 
 .cardBorder {
     width: 160px;
     background-color: var(--blueIconColor);
+    color: white;
     margin: 2px;
 }
 
