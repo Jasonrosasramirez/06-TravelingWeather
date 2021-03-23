@@ -1,6 +1,8 @@
 var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div. Links to the submit button. 
 var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent search history
 
+// search History Appead 
+var searchHistoryContainer1E1 = document.getElementById("searchHistoryContainer1");
 
 
 searchSubmitButtonE1.on("click", function(event) {
@@ -13,6 +15,7 @@ searchSubmitButtonE1.on("click", function(event) {
     localStorage.setItem("searchInputStorage", citySearchBoxText); 
   //localStorage.setItem(what you're storing to, what you are actually storing)
 
+    searchHistoryContainer1E1.removeAttribute("class", "disappear")
 // circle back to complete items appearing and dissapearing. Using add and remove attribute for .dissapear.
 })
 
