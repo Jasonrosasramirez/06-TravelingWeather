@@ -6,10 +6,12 @@
 /* --+--                                      -- Global Variables --                                      --+-- */
 
 
-var citySearchBoxText; // will be used to store the search bar input. Probably the most valuable variable.
+//var citySearchBoxText; // will be used to store the search bar input. Probably the most valuable variable.
 
 var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div. Links to the submit button. 
 var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent search history
+
+var APIkey = "a0aabd4ead254fa3fc01aaf6c28e63eb" // using these value until my key works
 
 
 /* --+--                                      -- Essential Functions --                                      --+-- */
@@ -20,12 +22,12 @@ searchSubmitButtonE1.on("click", function(event) { // This begins the whole chai
     
     event.preventDefault();
 
-    citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored. using .value because it is an input. Variable was originally defined here instead of globally
+    var citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored. using .value because it is an input. Variable was originally defined here instead of globally
     recentCitySearch1E1.text(citySearchBoxText); // Displays CitySearchBoxText on screen. .text is a jquerry method  
     localStorage.setItem("searchInputStorage", citySearchBoxText); //localStorage.setItem(what you're storing to, what you are actually storing)
   
     populateSearchHistory(); // manages local storage and makes search history appear
-    getForecast(); // access the server side API
+    getForecast(citySearchBoxText); // access the server side API
 
 })  
 
@@ -40,10 +42,28 @@ function populateSearchHistory() {
 } // circle back to me. Please :3
 
 
-function getForecast() {
+function getForecast(city) {
     // triggered by search button click. 
 
-    console.log("The search input carries over " + citySearchBoxText); // citySearchBoxText does carry over
+    //console.log("The search input carries over " + citySearchBoxText); // citySearchBoxText does carry over
+
+    $.ajax({
+        // Used in asynchronous (continious updating) operations with weather application
+        type: "GET", // read information 
+        url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIkey + "&units=imperial", 
+        dataType: "json", // in this formating  
+        success: function (result) {
+            console.log(result);
+            getUVindex(result.coord.lat, result.coord.lon);
+            fiveDayForecast(city);
+        }
+        
+    })
+    
+    
+    
+
+
 
     // variables to store current day variables. Within scope of this function block. but not within sub functions. May need to make this global
     var tempOfToday;
@@ -52,6 +72,11 @@ function getForecast() {
     var UVindexofToday; 
     
     // fetch infomration using the weather API 
+
+
+
+
+
 
     //var APIurl = "https://openweathermap.org/api"; 
     //fetch (APIurl);
@@ -62,9 +87,9 @@ function getForecast() {
     */
 
 
+/* 
 
-
-    // Access the DOM for Current day forecast
+// Access the DOM for Current day forecast
     var temperatureDisplayE1 = document.getElementById("temperatureDisplay"); // Verified. Works outside of function
     var humidityDisplayE1 =  document.getElementById("humidityDisplay");
     var windSpeedDisplayE1 =  document.getElementById("windSpeedDisplay");
@@ -79,18 +104,54 @@ function getForecast() {
     //UVindexColor();
     //something to convert UV index into a number and give it a color class depending on index
 
+
+*/
+
+
+
 }
 
-function UVindexColor() {
+
+function fiveDayForecast(city) {
+
+    $.ajax({
+        // Used in asynchronous (continious updating) operations with weather application
+        type: "GET", // read information 
+        url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey + "&units=imperial", 
+        dataType: "json", // in this formating  
+        success: function (result) {
+            console.log(result);
+        }
+    })
+
+    
+}
+
+
+
+function getUVindex(lat, lon) {
     // scope issues with UVindexofToday. 
 
+    $.ajax({
+        // Used in asynchronous (continious updating) operations with weather application
+        type: "GET", // read information 
+        url: "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey, 
+        dataType: "json", // in this formating  
+        success: function (result) {
+            
+            console.log("UV Index is " + result.value);
+        }
+    })
 
-    console.log("UV index of today " + UVindexofToday + ". Type is " + typeof(UVindexofToday));
-    //parseInt(UVindexofToday);
+
+
 
 
 
 }
+
+
+
 
 
 
@@ -108,13 +169,7 @@ $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(wh
 
 /* Basic ajax structure
 
-$.ajax({
-    // Used in asynchronous (continious updating) operations with weather application
-    url: google.com, 
-    success: function (result) {
-        console.log("Hello! Ajax function has been accessed");
-    }
-})
+
 
 */ 
 
