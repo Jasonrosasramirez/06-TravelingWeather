@@ -1,29 +1,30 @@
 
 
+//                  Project is incomplete. Still working on this 
+
+
+/* --+--                                      -- Global Variables --                                      --+-- */
+
 
 var citySearchBoxText; // will be used to store the search bar input. Probably the most valuable variable.
-
 
 var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div. Links to the submit button. 
 var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent search history
 
-// search History Appead 
-var searchHistoryContainer1E1 = document.getElementById("searchHistoryContainer1"); // will have to remake this to make it more modular
+
+/* --+--                                      -- Essential Functions --                                      --+-- */
 
 
-
-searchSubmitButtonE1.on("click", function(event) {
+searchSubmitButtonE1.on("click", function(event) { // This begins the whole chain of events :) 
     // Once the search button is clicked, the search is displayed on the search history. Pressing enter on the seach bar also counts as a button press. 
+    
     event.preventDefault();
 
-    citySearchBoxText = document.getElementById("searchInput").value; 
-    //var citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored. using .value because it is an input.   
+    citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored. using .value because it is an input. Variable was originally defined here instead of globally
     recentCitySearch1E1.text(citySearchBoxText); // Displays CitySearchBoxText on screen. .text is a jquerry method  
     localStorage.setItem("searchInputStorage", citySearchBoxText); //localStorage.setItem(what you're storing to, what you are actually storing)
   
-    searchHistoryContainer1E1.removeAttribute("class") // removes .disapear which makes search item appear on screen
-    searchHistoryContainer1E1.setAttribute("class", "searchHistoryCityBlock");
-
+    populateSearchHistory()
     getForecast();
 
 }) // circle back to me 
@@ -31,11 +32,20 @@ searchSubmitButtonE1.on("click", function(event) {
 $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(where is this displayed to).text(localStorage.getItem(where it was saved to using setItem));
 
 
+function populateSearchHistory() {
+    // Triggered by search button click. 
+    
+    // This will become its own function at one point to make modular search boxes. 
+    var searchHistoryContainer1E1 = document.getElementById("searchHistoryContainer1"); // will have to remake this to make it more modular
+    searchHistoryContainer1E1.removeAttribute("class") // removes .disapear which makes search item appear on screen
+    searchHistoryContainer1E1.setAttribute("class", "searchHistoryCityBlock");
+}
 
 
 function getForecast() {
+    // triggered by search button click. 
 
-    console.log("does the city carry over? " + citySearchBoxText);
+    console.log("The search input carries over " + citySearchBoxText); 
 
     // Access the DOM  
     var temperatureDisplayE1 = document.getElementById("temperatureDisplay"); // Verified. Works outside of function
