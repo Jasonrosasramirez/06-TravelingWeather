@@ -2,7 +2,7 @@ var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID 
 var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent search history
 
 // search History Appead 
-var searchHistoryContainer1E1 = document.getElementById("searchHistoryContainer1");
+var searchHistoryContainer1E1 = document.getElementById("searchHistoryContainer1"); // will have to remake this to make it more modular
 
 
 searchSubmitButtonE1.on("click", function(event) {
@@ -16,10 +16,31 @@ searchSubmitButtonE1.on("click", function(event) {
     searchHistoryContainer1E1.removeAttribute("class") // removes .disapear which makes search item appear on screen
     searchHistoryContainer1E1.setAttribute("class", "searchHistoryCityBlock");
 
-}) // circle back to complete items appearing and dissapearing. Using add and remove attribute for .dissapear.
+}) // circle back to me 
 
 $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(where is this displayed to).text(localStorage.getItem(where it was saved to using setItem));
 
+
+
+function getForecast() {
+
+
+
+    // Access the DOM  
+    var temperatureDisplayE1 = document.getElementById("temperatureDisplay"); // Verified. Works outside of function
+    var humidityDisplayE1 =  document.getElementById("humidityDisplay");
+    var windSpeedDisplayE1 =  document.getElementById("windSpeedDisplay");
+    var indexDisplayE1 =  document.getElementById("indexDisplay");
+
+    // Updates display based on DOM 
+    temperatureDisplayE1.textContent = "peanut";
+    humidityDisplayE1.textContent = "butter" ;
+    windSpeedDisplayE1.textContent = "jelly";
+    indexDisplayE1.textContent = "time";
+    
+}
+
+getForecast();
 
 
 
@@ -41,7 +62,7 @@ $.ajax({
 
 
 
-/* basic fetch request structure 
+/* basic fetch request structure. In case there is an error of some kind
 
 var badRequestURL = "";
 var responseText = document.getElementById("responseText"); to be made
