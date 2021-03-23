@@ -96,7 +96,7 @@ function UVindexColor() {
 
 /* --+--                                      -- Local Storage --                                      --+-- */
 
-
+// Search History
 $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(where is this displayed to).text(localStorage.getItem(where it was saved to using setItem));
 
 
