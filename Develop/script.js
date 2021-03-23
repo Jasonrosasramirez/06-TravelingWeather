@@ -1,3 +1,9 @@
+
+
+
+var citySearchBoxText; // will be used to store the search bar input. Probably the most valuable variable.
+
+
 var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div. Links to the submit button. 
 var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent search history
 
@@ -5,16 +11,20 @@ var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent 
 var searchHistoryContainer1E1 = document.getElementById("searchHistoryContainer1"); // will have to remake this to make it more modular
 
 
+
 searchSubmitButtonE1.on("click", function(event) {
     // Once the search button is clicked, the search is displayed on the search history. Pressing enter on the seach bar also counts as a button press. 
     event.preventDefault();
 
-    var citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored. using .value because it is an input.   
+    citySearchBoxText = document.getElementById("searchInput").value; 
+    //var citySearchBoxText = document.getElementById("searchInput").value; // Text we want stored. using .value because it is an input.   
     recentCitySearch1E1.text(citySearchBoxText); // Displays CitySearchBoxText on screen. .text is a jquerry method  
     localStorage.setItem("searchInputStorage", citySearchBoxText); //localStorage.setItem(what you're storing to, what you are actually storing)
   
     searchHistoryContainer1E1.removeAttribute("class") // removes .disapear which makes search item appear on screen
     searchHistoryContainer1E1.setAttribute("class", "searchHistoryCityBlock");
+
+    getForecast();
 
 }) // circle back to me 
 
@@ -22,9 +32,10 @@ $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(wh
 
 
 
+
 function getForecast() {
 
-
+    console.log("does the city carry over? " + citySearchBoxText);
 
     // Access the DOM  
     var temperatureDisplayE1 = document.getElementById("temperatureDisplay"); // Verified. Works outside of function
@@ -32,15 +43,15 @@ function getForecast() {
     var windSpeedDisplayE1 =  document.getElementById("windSpeedDisplay");
     var indexDisplayE1 =  document.getElementById("indexDisplay");
 
-    // Updates display based on DOM 
-    temperatureDisplayE1.textContent = "peanut";
+    // Updates display based on weather search
+    temperatureDisplayE1.textContent = "peanut"; // These are all variable
     humidityDisplayE1.textContent = "butter" ;
     windSpeedDisplayE1.textContent = "jelly";
     indexDisplayE1.textContent = "time";
     
 }
 
-getForecast();
+
 
 
 
