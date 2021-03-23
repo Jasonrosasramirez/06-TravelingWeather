@@ -29,8 +29,6 @@ searchSubmitButtonE1.on("click", function(event) { // This begins the whole chai
 
 })  
 
-$("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(where is this displayed to).text(localStorage.getItem(where it was saved to using setItem));
-
 
 function populateSearchHistory() {
     // Triggered by search button click. 
@@ -47,13 +45,22 @@ function getForecast() {
 
     console.log("The search input carries over " + citySearchBoxText); // citySearchBoxText does carry over
 
-    // variables to store current day variables. Within scope of this function block.
+    // variables to store current day variables. Within scope of this function block. but not within sub functions. May need to make this global
     var tempOfToday;
     var humidityofToday; 
     var windSpeedofToday;
     var UVindexofToday; 
     
     // fetch infomration using the weather API 
+
+    //var APIurl = "https://openweathermap.org/api"; 
+    //fetch (APIurl);
+    /*.then(function (response) {
+        return response.json();
+    })
+
+    */
+
 
 
 
@@ -63,16 +70,34 @@ function getForecast() {
     var windSpeedDisplayE1 =  document.getElementById("windSpeedDisplay");
     var UVindexDisplayE1 =  document.getElementById("UVindexDisplay");
 
-    // Updates display based on weather search
+    // Updates display based on weather search. Currently using place holders
     temperatureDisplayE1.textContent = "90.9 F"; // These are all variable. Will eventually be updated by fetch section
     humidityDisplayE1.textContent = "41 % " ; // humidityofToday
     windSpeedDisplayE1.textContent = "4.7" + " MPH";
     UVindexDisplayE1.textContent = "9.49 "; // UVindexofToday
     
+    //UVindexColor();
     //something to convert UV index into a number and give it a color class depending on index
 
 }
 
+function UVindexColor() {
+    // scope issues with UVindexofToday. 
+
+
+    console.log("UV index of today " + UVindexofToday + ". Type is " + typeof(UVindexofToday));
+    //parseInt(UVindexofToday);
+
+
+
+}
+
+
+
+/* --+--                                      -- Local Storage --                                      --+-- */
+
+
+$("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(where is this displayed to).text(localStorage.getItem(where it was saved to using setItem));
 
 
 
