@@ -24,10 +24,10 @@ searchSubmitButtonE1.on("click", function(event) { // This begins the whole chai
     recentCitySearch1E1.text(citySearchBoxText); // Displays CitySearchBoxText on screen. .text is a jquerry method  
     localStorage.setItem("searchInputStorage", citySearchBoxText); //localStorage.setItem(what you're storing to, what you are actually storing)
   
-    populateSearchHistory()
-    getForecast();
+    populateSearchHistory(); // manages local storage and makes search history appear
+    getForecast(); // access the server side API
 
-}) // circle back to me 
+})  
 
 $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(where is this displayed to).text(localStorage.getItem(where it was saved to using setItem));
 
@@ -39,25 +39,35 @@ function populateSearchHistory() {
     var searchHistoryContainer1E1 = document.getElementById("searchHistoryContainer1"); // will have to remake this to make it more modular
     searchHistoryContainer1E1.removeAttribute("class") // removes .disapear which makes search item appear on screen
     searchHistoryContainer1E1.setAttribute("class", "searchHistoryCityBlock");
-}
+} // circle back to me. Please :3
 
 
 function getForecast() {
     // triggered by search button click. 
 
-    console.log("The search input carries over " + citySearchBoxText); 
+    console.log("The search input carries over " + citySearchBoxText); // citySearchBoxText does carry over
 
-    // Access the DOM  
+    // variables to store current day variables. Within scope of this function block.
+    var tempOfToday;
+    var humidityofToday; 
+    var windSpeedofToday;
+    var UVindexofToday; 
+    
+    // fetch infomration using the weather API 
+
+
+
+    // Access the DOM for Current day forecast
     var temperatureDisplayE1 = document.getElementById("temperatureDisplay"); // Verified. Works outside of function
     var humidityDisplayE1 =  document.getElementById("humidityDisplay");
     var windSpeedDisplayE1 =  document.getElementById("windSpeedDisplay");
-    var indexDisplayE1 =  document.getElementById("indexDisplay");
+    var UVindexDisplayE1 =  document.getElementById("UVindexDisplay");
 
     // Updates display based on weather search
-    temperatureDisplayE1.textContent = "peanut"; // These are all variable
-    humidityDisplayE1.textContent = "butter" ;
+    temperatureDisplayE1.textContent = "peanut"; // These are all variable. Will eventually be updated by fetch section
+    humidityDisplayE1.textContent = "butter" ; // humidityofToday
     windSpeedDisplayE1.textContent = "jelly";
-    indexDisplayE1.textContent = "time";
+    UVindexDisplayE1.textContent = "time"; // UVindexofToday
     
 }
 
