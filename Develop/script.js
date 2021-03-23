@@ -64,11 +64,13 @@ function getForecast() {
     var UVindexDisplayE1 =  document.getElementById("UVindexDisplay");
 
     // Updates display based on weather search
-    temperatureDisplayE1.textContent = "peanut"; // These are all variable. Will eventually be updated by fetch section
-    humidityDisplayE1.textContent = "butter" ; // humidityofToday
-    windSpeedDisplayE1.textContent = "jelly";
-    UVindexDisplayE1.textContent = "time"; // UVindexofToday
+    temperatureDisplayE1.textContent = "90.9 F"; // These are all variable. Will eventually be updated by fetch section
+    humidityDisplayE1.textContent = "41 % " ; // humidityofToday
+    windSpeedDisplayE1.textContent = "4.7" + " MPH";
+    UVindexDisplayE1.textContent = "9.49 "; // UVindexofToday
     
+    //something to convert UV index into a number and give it a color class depending on index
+
 }
 
 
