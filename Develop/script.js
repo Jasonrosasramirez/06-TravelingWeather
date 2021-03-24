@@ -21,10 +21,7 @@ var weatherMistIcon = "fas fa-smog"; // using the smog icon. This was the closes
 
 
 var todayWeatherIconE1 = document.getElementById("todayWeatherIcon"); // you need this here 
-// todayWeatherIconE1.setAttribute("class", weatherFewCloudsIcon);
-
-
-
+// todayWeatherIconE1.setAttribute("class", weatherSnowIcon);
 
 
 
@@ -132,7 +129,7 @@ function getUVindex(latitude, longitude) {
         dataType: "json", 
         success: function (result) {
             
-            console.log("UV Index is " + result.value); // result.value in this case is the UV index
+            console.log("getUVIndex is " + result.value); // result.value in this case is the UV index
             colorUVindex(result.value); // passes on index value for coloring
         }
     })
