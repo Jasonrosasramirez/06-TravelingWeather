@@ -11,7 +11,7 @@
 var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div. Links to the submit button. 
 var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent search history
 
-var APIkey = "a0aabd4ead254fa3fc01aaf6c28e63eb" // using these value until my key works
+var APIkey = "22892ae50b03ea6718c5ea35fb5bc1f5"; // my personal API key for open weather
 
 
 /* --+--                                      -- Essential Functions --                                      --+-- */
@@ -26,11 +26,16 @@ searchSubmitButtonE1.on("click", function(event) { // This begins the whole chai
     recentCitySearch1E1.text(citySearchBoxText); // Displays CitySearchBoxText on screen. .text is a jquerry method  
     localStorage.setItem("searchInputStorage", citySearchBoxText); //localStorage.setItem(what you're storing to, what you are actually storing)
   
-    //populateSearchHistory(); // manages local storage and makes search history appear
-    getForecast(citySearchBoxText); // access the server side API. passes on the city inputs to the other functions. 
 
+    displayCityAndDate(citySearchBoxText);
+    //populateSearchHistory(); // manages local storage and makes search history appear
+    getForecast(citySearchBoxText); // access the server side API. passes on the citySearchBoxText as the parameters to other functions. 
 })  
 
+function displayCityAndDate(city) {
+    console.log("display city " + city);
+
+}
 
 function populateSearchHistory() {
     // Triggered by search button click. 
@@ -43,17 +48,17 @@ function populateSearchHistory() {
 
 
 function getForecast(city) {
-    // triggered by search button click. 
+    // triggered by search button click. citySearchBoxText is carried over as the city parameter 
 
-    //console.log("The search input carries over " + citySearchBoxText); // citySearchBoxText does carry over
-
-    $.ajax({
-        // Used in asynchronous (continious updating) operations with weather application
+    $.ajax({ // Used in asynchronous (continious updating) operations with weather application
+        
         type: "GET", // read information 
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIkey + "&units=imperial", 
-        dataType: "json", // in this formating  
-        success: function (result) {
-            console.log(result);
+        url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIkey + "&units=imperial", // the API being used. citySearchBoxText from submitSearchFunctionE1 as city. My API key. Setting the units to imperial   
+        dataType: "json", // return in this formating  
+        
+        success: function (result) { // if the above was successful 
+            console.log(result); // print out the data as a json
+            
             getUVindex(result.coord.lat, result.coord.lon);
             fiveDayForecast(city);
         }
