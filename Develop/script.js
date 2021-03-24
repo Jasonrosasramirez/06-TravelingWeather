@@ -124,7 +124,7 @@ function getUVindex(lat, lon) {
 
         console.log("am I a number now? " + UVindexValueofTodayInteger + " the type is " + typeof(UVindexValueofTodayInteger)); 
 
-        UVindexDisplay.setAttribute("class", "UVindexDisplay");
+        UVindexDisplay.setAttribute("class", "UVindexSevere");
         
 
     }

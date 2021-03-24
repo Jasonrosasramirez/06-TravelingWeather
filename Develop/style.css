@@ -15,10 +15,23 @@
     border: none;
 }
 
-.UVindexDisplay {
-    border: 1px solid red;
-    background-color: green;
+#UVindexDisplay {
     color: white;
+}
+
+.UVindexFavorable {
+    background-color: teal;
+    border-radius: 4px;
+}
+
+.UVindexModerate {
+    background-color: green;
+    border-radius: 4px;
+}
+
+.UVindexSevere {
+    background-color: red;
+    border-radius: 4px;
 }
 
 .cardBorder {
