@@ -18,9 +18,8 @@ var weatherThunderstormIcon = "fas fa-bolt"; // using bolt icon
 var weatherSnowIcon = "fas fa-snowflake"; // using snowflake icon
 var weatherMistIcon = "fas fa-smog"; // using the smog icon. This was the closest match
 
+ 
 
-var todayWeatherIconE1 = document.getElementById("todayWeatherIcon"); // you need this here 
-// todayWeatherIconE1.setAttribute("class", weatherSnowIcon);
 
 
 
@@ -92,9 +91,37 @@ function getForecast(city) {
         humidityDisplayE1.textContent = humidity + " %"; 
         windSpeedDisplayE1.textContent = windSpeed + " MPH";
 
-
+        //weather icon section. I maight make this its own function 
+        var todayWeatherIconE1 = document.getElementById("todayWeatherIcon"); // you need this here
         console.log("what is the weather :) " + weather);
 
+        if (weather == "clear sky") {
+            todayWeatherIconE1.setAttribute("class", weatherClearSkyIcon);
+        } 
+        else if (weather == "few clouds") {
+            todayWeatherIconE1.setAttribute("class", weatherFewCloudsIcon);
+        }
+        else if (weather == "scattered clouds") {
+            todayWeatherIconE1.setAttribute("class", weatherScatteredCloudsIcon);
+        }
+        else if (weather == "broken clouds") {
+            todayWeatherIconE1.setAttribute("class", weatherBrokenCloudsIcon);
+        }
+        else if (weather == "shower rain") {
+            todayWeatherIconE1.setAttribute("class", weatherShowerRainIcon);
+        }
+        else if (weather == "rain") {
+            todayWeatherIconE1.setAttribute("class", weatherRainIcon);
+        }
+        else if (weather == "thunderstorm") {
+            todayWeatherIconE1.setAttribute("class", weatherThunderstormIcon);
+        }
+        else if (weather == "snow") {
+            todayWeatherIconE1.setAttribute("class", weatherSnowIcon);
+        }
+        else {
+            todayWeatherIconE1.setAttribute("class", weatherMistIcon);
+        }
 
 
     } // I display today's information on screen :) 
