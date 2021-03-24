@@ -55,7 +55,7 @@ function getForecast(city) {
         success: function (result) { // if the above was successful 
             console.log(result); // print out the data as a json
             
-            forecastDisplay(result.wind.speed);
+            forecastDisplay(result.main.temp, result.main.humidity ,result.wind.speed);
 
             getUVindex(result.coord.lat, result.coord.lon); // passes the city latitude and longitude 
             getFiveDayForecast(city); // passes the city name
@@ -63,11 +63,9 @@ function getForecast(city) {
         
     })
     
-    function forecastDisplay(windSpeed) {
+    function forecastDisplay(temperature, humidity, windSpeed) {
         
-        
-        
-        console.log("wind speed is" + windSpeed);
+        console.log("temp is " + temperature + " | humidity " + humidity + " | wind speed is " + windSpeed);
 
     }
 
