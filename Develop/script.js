@@ -124,8 +124,15 @@ function getUVindex(lat, lon) {
 
         console.log("am I a number now? " + UVindexValueofTodayInteger + " the type is " + typeof(UVindexValueofTodayInteger)); 
 
-        UVindexDisplay.setAttribute("class", "UVindexSevere");
-        
+        if (UVindexValueofTodayInteger > 5) {
+            UVindexDisplay.setAttribute("class", "UVindexSevere"); // severe red
+        } 
+        else if (UVindexValueofTodayInteger < 3) {
+            UVindexDisplay.setAttribute("class", "UVindexFavorable"); // favorable blue
+        } else {
+            // index is between 3 and 5. 
+            UVindexDisplay.setAttribute("class", "UVindexModerate"); // moderate green 
+        }
 
     }
 
