@@ -129,7 +129,6 @@ function getForecast(city) {
 
 function getFiveDayForecast(city) {
 
-    console.log("five day forecast triggered ");
 
     $.ajax({
         // Used in asynchronous (continious updating) operations with weather application
@@ -138,10 +137,14 @@ function getFiveDayForecast(city) {
         dataType: "json", // in this formating  
         success: function (result) {
             console.log(result);
+            fiveDayForecastElementSorting(result);
         }
     })  
 
-
+    function fiveDayForecastElementSorting(ajaxResult) {
+        console.log("five day element sorting triggered ");
+        console.log(ajaxResult);
+    } 
 
 
 }
