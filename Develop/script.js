@@ -1,5 +1,4 @@
 
-//var citySearchBoxText; // will be used to store the search bar input. Probably the most valuable variable.
 
 var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div. Links to the submit button. 
 var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent search history
@@ -73,14 +72,14 @@ function getForecast(city) {
         success: function (result) { // if the above was successful 
             console.log(result); // print out the data as a json
             
-            forecastDisplay(result.main.temp, result.main.humidity, result.wind.speed); // triggers the display forecast within this main loop
+            forecastDisplay(result.main.temp, result.main.humidity, result.wind.speed, result.weather[0].description); // triggers the display forecast within this main loop
 
             getUVindex(result.coord.lat, result.coord.lon); // passes the city latitude and longitude 
         }
         
     })
     
-    function forecastDisplay(temperature, humidity, windSpeed) {
+    function forecastDisplay(temperature, humidity, windSpeed, weather) {
         // carries information from json results over. triggered by the AJAX call above.  
 
         // access the DOM for each display below 
@@ -92,6 +91,11 @@ function getForecast(city) {
         temperatureDisplayE1.textContent = temperature + " F"; 
         humidityDisplayE1.textContent = humidity + " %"; 
         windSpeedDisplayE1.textContent = windSpeed + " MPH";
+
+
+        console.log("what is the weather :) " + weather);
+
+
 
     } // I display today's information on screen :) 
 
