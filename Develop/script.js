@@ -55,16 +55,22 @@ function getForecast(city) {
         success: function (result) { // if the above was successful 
             console.log(result); // print out the data as a json
             
-            getUVindex(result.coord.lat, result.coord.lon);
-            fiveDayForecast(city);
+            forecastDisplay(result.wind.speed);
+
+            getUVindex(result.coord.lat, result.coord.lon); // passes the city latitude and longitude 
+            getFiveDayForecast(city); // passes the city name
         }
         
     })
     
-    // variables to store current day variables. Within scope of this function block. but not within sub functions. May need to make this global
-    var tempOfToday;
-    var humidityofToday; 
-    var windSpeedofToday;
+    function forecastDisplay(windSpeed) {
+        
+        
+        
+        console.log("wind speed is" + windSpeed);
+
+    }
+
 
 
 /* 
@@ -82,7 +88,7 @@ function getForecast(city) {
 }
 
 
-function fiveDayForecast(city) {
+function getFiveDayForecast(city) {
 
     $.ajax({
         // Used in asynchronous (continious updating) operations with weather application
