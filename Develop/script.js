@@ -35,6 +35,8 @@ searchSubmitButtonE1.on("click", function(event) { // This begins the whole chai
 function displayCityAndDate(city) {
     console.log("display city " + city);
 
+    cityNameE1 = document.getElementById("cityName");
+    cityNameE1.textContent = city;
 }
 
 function populateSearchHistory() {
