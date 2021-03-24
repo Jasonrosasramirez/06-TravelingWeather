@@ -143,11 +143,12 @@ function getFiveDayForecast(city) {
 
     function fiveDayForecastElementSorting(ajaxResult) {
         // carriers over the whole json from the ajax above. It's just easier this way. 
-        var day1 = ajaxResult.list[11].clouds.all;
+        var day1Temp = ajaxResult.list[11].main.temp;
+        var day1Humidity = ajaxResult.list[11].main.humidity;
+        var day1Humidity = ajaxResult.list[11].weather[0].description;
 
 
-
-        console.log("day 1 is " + day1);
+        console.log("day 1 is " + day1Temp + "humidity is " + day1Humidity + " the weather is " + day1Humidity);
 
     } 
 
