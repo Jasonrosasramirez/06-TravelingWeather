@@ -55,16 +55,15 @@ function getForecast(city) {
         success: function (result) { // if the above was successful 
             console.log(result); // print out the data as a json
             
-            forecastDisplay(result.main.temp, result.main.humidity ,result.wind.speed);
+            forecastDisplay(result.main.temp, result.main.humidity, result.wind.speed); // triggers the display forecast within this main loop
 
             getUVindex(result.coord.lat, result.coord.lon); // passes the city latitude and longitude 
-            getFiveDayForecast(city); // passes the city name
         }
         
     })
     
     function forecastDisplay(temperature, humidity, windSpeed) {
-        // carries information from json results over 
+        // carries information from json results over. triggered by the AJAX call above.  
 
         // access the DOM for each display below 
         var temperatureDisplayE1 = document.getElementById("temperatureDisplay");
@@ -78,6 +77,8 @@ function getForecast(city) {
 
     } // I display today's information on screen :) 
 
+
+    getFiveDayForecast(city); // passes the city name. Triggers the five day forecast. 
 }
 
 
@@ -89,6 +90,7 @@ function getFiveDayForecast(city) {
         url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey + "&units=imperial", 
         dataType: "json", // in this formating  
         success: function (result) {
+            console.log("five day results");
             console.log(result);
         }
     })  
