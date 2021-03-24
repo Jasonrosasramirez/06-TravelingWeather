@@ -18,8 +18,6 @@ var weatherThunderstormIcon = "fas fa-bolt"; // using bolt icon
 var weatherSnowIcon = "fas fa-snowflake"; // using snowflake icon
 var weatherMistIcon = "fas fa-smog"; // using the smog icon. This was the closest match
 
- 
-
 
 
 
@@ -37,8 +35,8 @@ searchSubmitButtonE1.on("click", function(event) { // This begins the whole chai
   
 
     displayCityAndDate(citySearchBoxText);
-    //populateSearchHistory(); // manages local storage and makes search history appear
     getForecast(citySearchBoxText); // access the server side API. passes on the citySearchBoxText as the parameters to other functions. 
+    getFiveDayForecast(citySearchBoxText); // passes the city name. Triggers the five day forecast. 
 })  
 
 function displayCityAndDate(city) {
@@ -95,6 +93,7 @@ function getForecast(city) {
         var todayWeatherIconE1 = document.getElementById("todayWeatherIcon"); // you need this here
         console.log("what is the weather :) " + weather);
 
+        // determines the weather icon
         if (weather == "clear sky") {
             todayWeatherIconE1.setAttribute("class", weatherClearSkyIcon);
         } 
@@ -119,19 +118,18 @@ function getForecast(city) {
         else if (weather == "snow") {
             todayWeatherIconE1.setAttribute("class", weatherSnowIcon);
         }
-        else {
+        else { // it must be mist 
             todayWeatherIconE1.setAttribute("class", weatherMistIcon);
         }
 
-
     } // I display today's information on screen :) 
 
-
-    getFiveDayForecast(city); // passes the city name. Triggers the five day forecast. 
 }
 
 
 function getFiveDayForecast(city) {
+
+    console.log("five day forecast triggered ");
 
     $.ajax({
         // Used in asynchronous (continious updating) operations with weather application
