@@ -6,6 +6,11 @@ var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent 
 
 var APIkey = "22892ae50b03ea6718c5ea35fb5bc1f5"; // my personal API key for open weather
 
+var todayWeatherIconE1 = document.getElementById("todayWeatherIcon");
+var cloudyIconClass = "fas fa-cloud";
+
+todayWeatherIconE1.setAttribute("class", cloudyIconClass);
+
 
 /* --+--                                      -- Essential Functions --                                      --+-- */
 
