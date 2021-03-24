@@ -116,18 +116,15 @@ function getUVindex(lat, lon) {
     function colorUVindex (UVindexValueofToday) {
         // sets the UV color background color based on index
 
-        var UVindexDisplayE1 =  document.getElementById("UVindexDisplay");
-        UVindexDisplayE1.textContent = UVindexValueofToday; // displays to screen
+        var UVindexDisplayE1 =  document.getElementById("UVindexDisplay"); // accesses the DOM
+        UVindexDisplayE1.textContent = UVindexValueofToday; // displays UVIndex to screen
+        UVindexValueofTodayFloat = parseFloat(UVindexValueofToday); // converts index of today into a float for comparison
 
-        // color breakdown | favorable | moderate is 3 to 5 | severe 
-        UVindexValueofTodayInteger = parseFloat(UVindexValueofToday);
-
-        console.log("am I a number now? " + UVindexValueofTodayInteger + " the type is " + typeof(UVindexValueofTodayInteger)); 
-
-        if (UVindexValueofTodayInteger > 5) {
+        // sets the color index 
+        if (UVindexValueofTodayFloat > 5) {
             UVindexDisplay.setAttribute("class", "UVindexSevere"); // severe red
         } 
-        else if (UVindexValueofTodayInteger < 3) {
+        else if (UVindexValueofTodayFloat < 3) {
             UVindexDisplay.setAttribute("class", "UVindexFavorable"); // favorable blue
         } else {
             // index is between 3 and 5. 
@@ -137,10 +134,6 @@ function getUVindex(lat, lon) {
     }
 
 }
-
-
-
-
 
 
 /* --+--                                      -- Local Storage --                                      --+-- */
