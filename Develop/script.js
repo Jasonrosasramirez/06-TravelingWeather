@@ -30,9 +30,9 @@ function displayCityAndDate(city) {
 
     console.log("display city " + city + "what is the date" + dateToday);
 
-    var dateToday = moment().format("MMM DD, YYYY");
+    var dateToday = moment().format("MMM DD,YYYY");
     cityNameE1 = document.getElementById("cityName");
-    cityNameE1.textContent = city + "("+ dateToday + ")__";
+    cityNameE1.textContent = city + " ("+ dateToday + ")__";
 }
 
 function populateSearchHistory() {
@@ -113,15 +113,23 @@ function getUVindex(lat, lon) {
     // scope issues with UVindexofToday. 
 
     $.ajax({
-        // Used in asynchronous (continious updating) operations with weather application
-        type: "GET", // read information 
+        
+        type: "GET", 
         url: "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey, 
         dataType: "json", // in this formating  
         success: function (result) {
             
-            console.log("UV Index is " + result.value);
+            console.log("UV Index is " + result.value); // value in this case is the UV index
+            colorUVindex(result.value);
         }
     })
+
+
+    function colorUVindex (UVindexValue) {
+        console.log("the UV index value carried over " + UVindexValue);
+
+
+    }
 
 }
 
