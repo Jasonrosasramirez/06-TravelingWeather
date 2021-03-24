@@ -65,9 +65,6 @@ function getForecast(city) {
     var tempOfToday;
     var humidityofToday; 
     var windSpeedofToday;
-    
-    
-    // fetch infomration using the weather API 
 
 
 /* 
@@ -122,11 +119,13 @@ function getUVindex(lat, lon) {
         var UVindexDisplayE1 =  document.getElementById("UVindexDisplay");
         UVindexDisplayE1.textContent = UVindexValueofToday; // displays to screen
 
-        // color breakdown moderate is 3 to 5 
+        // color breakdown | favorable | moderate is 3 to 5 | severe 
         UVindexValueofTodayInteger = parseFloat(UVindexValueofToday);
 
         console.log("am I a number now? " + UVindexValueofTodayInteger + " the type is " + typeof(UVindexValueofTodayInteger)); 
 
+        UVindexDisplay.setAttribute("class", "UVindexDisplay");
+        
 
     }
 
