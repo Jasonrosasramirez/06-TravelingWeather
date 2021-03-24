@@ -26,8 +26,8 @@ searchSubmitButtonE1.on("click", function(event) { // This begins the whole chai
     recentCitySearch1E1.text(citySearchBoxText); // Displays CitySearchBoxText on screen. .text is a jquerry method  
     localStorage.setItem("searchInputStorage", citySearchBoxText); //localStorage.setItem(what you're storing to, what you are actually storing)
   
-    populateSearchHistory(); // manages local storage and makes search history appear
-    getForecast(citySearchBoxText); // access the server side API
+    //populateSearchHistory(); // manages local storage and makes search history appear
+    getForecast(citySearchBoxText); // access the server side API. passes on the city inputs to the other functions. 
 
 })  
 
@@ -60,11 +60,6 @@ function getForecast(city) {
         
     })
     
-    
-    
-
-
-
     // variables to store current day variables. Within scope of this function block. but not within sub functions. May need to make this global
     var tempOfToday;
     var humidityofToday; 
@@ -72,19 +67,6 @@ function getForecast(city) {
     var UVindexofToday; 
     
     // fetch infomration using the weather API 
-
-
-
-
-
-
-    //var APIurl = "https://openweathermap.org/api"; 
-    //fetch (APIurl);
-    /*.then(function (response) {
-        return response.json();
-    })
-
-    */
 
 
 /* 
@@ -106,9 +88,6 @@ function getForecast(city) {
 
 
 */
-
-
-
 }
 
 
@@ -122,9 +101,7 @@ function fiveDayForecast(city) {
         success: function (result) {
             console.log(result);
         }
-    })
-
-    
+    })  
 }
 
 
@@ -143,11 +120,6 @@ function getUVindex(lat, lon) {
         }
     })
 
-
-
-
-
-
 }
 
 
@@ -165,39 +137,6 @@ $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(wh
 
 
 
-
-
-/* Basic ajax structure
-
-
-
-*/ 
-
-
-
-/* basic fetch request structure. In case there is an error of some kind
-
-var badRequestURL = "";
-var responseText = document.getElementById("responseText"); to be made
-
-function getAPI(requestURL) {
-    fetch(requestURL)
-        .then(function (response) {
-            console.log(response.status);
-
-            if (response.status !== 200) {
-                responseText.textContent = response.status;
-            }
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        });
-}
-
-getAPI(badRequestURL);
-
-*/
 
 
 
