@@ -164,13 +164,13 @@ function getFiveDayForecast(city) {
         day1TempDisplayE1.textContent = day1Temp;
         day1HumidityDisplayE1.textContent = day1Humidity;
 
-        day1IconCheck(day1Weather); // this adds the icon 
+        day1IconCheck(day1Weather, "day1WeatherIcon"); // this adds the icon 
     } 
 
 
-    function day1IconCheck(weather) { // can probably make this more modular by adding a second or third parameter :)) 
+    function day1IconCheck(weather, dayNumberID) { // can probably make this more modular by adding a second or third parameter :)) 
 
-        todayWeatherIconE1 = document.getElementById("day1WeatherIcon");
+        todayWeatherIconE1 = document.getElementById(dayNumberID);
 
         // determines the weather icon
         if (weather == "clear sky") {
