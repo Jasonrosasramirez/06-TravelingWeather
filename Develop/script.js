@@ -28,8 +28,6 @@ searchSubmitButtonE1.on("click", function(event) { // This begins the whole chai
 function displayCityAndDate(city) {
     // triggered by search button click.
 
-    console.log("display city " + city + "what is the date" + dateToday);
-
     var dateToday = moment().format("MMM DD,YYYY");
     cityNameE1 = document.getElementById("cityName");
     cityNameE1.textContent = city + " ("+ dateToday + ")__";
@@ -67,7 +65,7 @@ function getForecast(city) {
     var tempOfToday;
     var humidityofToday; 
     var windSpeedofToday;
-    var UVindexofToday; 
+    
     
     // fetch infomration using the weather API 
 
@@ -78,18 +76,11 @@ function getForecast(city) {
     var temperatureDisplayE1 = document.getElementById("temperatureDisplay"); // Verified. Works outside of function
     var humidityDisplayE1 =  document.getElementById("humidityDisplay");
     var windSpeedDisplayE1 =  document.getElementById("windSpeedDisplay");
-    var UVindexDisplayE1 =  document.getElementById("UVindexDisplay");
 
     // Updates display based on weather search. Currently using place holders
     temperatureDisplayE1.textContent = "90.9 F"; // These are all variable. Will eventually be updated by fetch section
     humidityDisplayE1.textContent = "41 % " ; // humidityofToday
     windSpeedDisplayE1.textContent = "4.7" + " MPH";
-    UVindexDisplayE1.textContent = "9.49 "; // UVindexofToday
-    
-    //UVindexColor();
-    //something to convert UV index into a number and give it a color class depending on index
-
-
 */
 }
 
@@ -116,17 +107,25 @@ function getUVindex(lat, lon) {
         
         type: "GET", 
         url: "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey, 
-        dataType: "json", // in this formating  
+        dataType: "json", 
         success: function (result) {
             
-            console.log("UV Index is " + result.value); // value in this case is the UV index
+            console.log("UV Index is " + result.value); // result.value in this case is the UV index
             colorUVindex(result.value);
         }
     })
 
 
-    function colorUVindex (UVindexValue) {
-        console.log("the UV index value carried over " + UVindexValue);
+    function colorUVindex (UVindexValueofToday) {
+        // sets the UV color background color based on index
+
+        var UVindexDisplayE1 =  document.getElementById("UVindexDisplay");
+        UVindexDisplayE1.textContent = UVindexValueofToday; // displays to screen
+
+        // color breakdown moderate is 3 to 5 
+        UVindexValueofTodayInteger = parseFloat(UVindexValueofToday);
+
+        console.log("am I a number now? " + UVindexValueofTodayInteger + " the type is " + typeof(UVindexValueofTodayInteger)); 
 
 
     }
