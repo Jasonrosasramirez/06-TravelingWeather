@@ -64,25 +64,20 @@ function getForecast(city) {
     })
     
     function forecastDisplay(temperature, humidity, windSpeed) {
+        // carries information from json results over 
+
+        // access the DOM for each display below 
+        var temperatureDisplayE1 = document.getElementById("temperatureDisplay");
+        var humidityDisplayE1 =  document.getElementById("humidityDisplay");
+        var windSpeedDisplayE1 =  document.getElementById("windSpeedDisplay");
         
-        console.log("temp is " + temperature + " | humidity " + humidity + " | wind speed is " + windSpeed);
+        // displays the ajax json results on screen below 
+        temperatureDisplayE1.textContent = temperature + " F"; 
+        humidityDisplayE1.textContent = humidity + " %"; 
+        windSpeedDisplayE1.textContent = windSpeed + " MPH";
 
-    }
+    } // I display today's information on screen :) 
 
-
-
-/* 
-
-// Access the DOM for Current day forecast
-    var temperatureDisplayE1 = document.getElementById("temperatureDisplay"); // Verified. Works outside of function
-    var humidityDisplayE1 =  document.getElementById("humidityDisplay");
-    var windSpeedDisplayE1 =  document.getElementById("windSpeedDisplay");
-
-    // Updates display based on weather search. Currently using place holders
-    temperatureDisplayE1.textContent = "90.9 F"; // These are all variable. Will eventually be updated by fetch section
-    humidityDisplayE1.textContent = "41 % " ; // humidityofToday
-    windSpeedDisplayE1.textContent = "4.7" + " MPH";
-*/
 }
 
 
