@@ -142,13 +142,17 @@ function getFiveDayForecast(city) {
     })  
 
     function fiveDayForecastElementSorting(ajaxResult) {
-        console.log("five day element sorting triggered ");
-        console.log(ajaxResult);
+        // carriers over the whole json from the ajax above. It's just easier this way. 
+        var day1 = ajaxResult.list[11].clouds.all;
+
+
+
+        console.log("day 1 is " + day1);
+
     } 
 
 
 }
-
 
 
 function getUVindex(latitude, longitude) {
