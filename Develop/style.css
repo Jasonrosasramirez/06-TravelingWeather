@@ -77,6 +77,13 @@ header {
     margin: 4px;
 }
 
+.displayWeatherInfo {
+    border: 2px green dashed;
+    margin: 4px; 
+    padding: 4px;
+}
+
+
 #forecastDisplayFiveDayCardsID {
     border: 2px green dotted;
     margin: 2px;

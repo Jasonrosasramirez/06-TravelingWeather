@@ -90,10 +90,13 @@ function getFiveDayForecast(city) {
         url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey + "&units=imperial", 
         dataType: "json", // in this formating  
         success: function (result) {
-            console.log("five day results");
             console.log(result);
         }
     })  
+
+
+
+
 }
 
 
