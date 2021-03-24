@@ -97,18 +97,18 @@ function fiveDayForecast(city) {
 
 
 
-function getUVindex(lat, lon) {
+function getUVindex(latitude, longitude) {
     // scope issues with UVindexofToday. 
 
     $.ajax({
         
         type: "GET", 
-        url: "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey, 
+        url: "http://api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkey, 
         dataType: "json", 
         success: function (result) {
             
             console.log("UV Index is " + result.value); // result.value in this case is the UV index
-            colorUVindex(result.value);
+            colorUVindex(result.value); // passes on index value for coloring
         }
     })
 
@@ -133,7 +133,7 @@ function getUVindex(lat, lon) {
 
     }
 
-}
+} // all things UV index :) 
 
 
 /* --+--                                      -- Local Storage --                                      --+-- */
