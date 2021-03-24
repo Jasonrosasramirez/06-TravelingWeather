@@ -90,7 +90,11 @@ function getForecast(city) {
         windSpeedDisplayE1.textContent = windSpeed + " MPH";
 
         //weather icon section. I maight make this its own function 
-        var todayWeatherIconE1 = document.getElementById("todayWeatherIcon"); // you need this here
+        var todayWeatherIconStatusE1 = document.getElementById("todayWeatherIconStatus"); 
+        var todayWeatherIconE1 = document.getElementById("todayWeatherIcon"); // references the spot for the weather icon :) 
+        
+        todayWeatherIconStatusE1.textContent = weather;
+
         console.log("what is the weather :) " + weather);
 
         // determines the weather icon
@@ -156,10 +160,46 @@ function getFiveDayForecast(city) {
         day1HumidityDisplayE1 = document.getElementById("day1HumidityDisplay");
         day1WeatherIconE1 = document.getElementById("day1WeatherIcon");
 
+        // display information on screen
+        day1TempDisplayE1.textContent = day1Temp;
+        day1HumidityDisplayE1.textContent = day1Humidity;
+        day1WeatherIconE1.textContent = day1Weather;
 
+        day1IconCheck(day1Weather);
     } 
 
 
+    function day1IconCheck(weather) {
+
+        // determines the weather icon
+        if (weather == "clear sky") {
+            todayWeatherIconE1.setAttribute("class", weatherClearSkyIcon);
+        } 
+        else if (weather == "few clouds") {
+            todayWeatherIconE1.setAttribute("class", weatherFewCloudsIcon);
+        }
+        else if (weather == "scattered clouds") {
+            todayWeatherIconE1.setAttribute("class", weatherScatteredCloudsIcon);
+        }
+        else if (weather == "broken clouds") {
+            todayWeatherIconE1.setAttribute("class", weatherBrokenCloudsIcon);
+        }
+        else if (weather == "shower rain") {
+            todayWeatherIconE1.setAttribute("class", weatherShowerRainIcon);
+        }
+        else if (weather == "rain") {
+            todayWeatherIconE1.setAttribute("class", weatherRainIcon);
+        }
+        else if (weather == "thunderstorm") {
+            todayWeatherIconE1.setAttribute("class", weatherThunderstormIcon);
+        }
+        else if (weather == "snow") {
+            todayWeatherIconE1.setAttribute("class", weatherSnowIcon);
+        }
+        else { // it must be mist 
+            todayWeatherIconE1.setAttribute("class", weatherMistIcon);
+        }
+    }
 }
 
 
