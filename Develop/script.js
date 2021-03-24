@@ -1,11 +1,4 @@
 
-
-//                  Project is incomplete. Still working on this 
-
-
-/* --+--                                      -- Global Variables --                                      --+-- */
-
-
 //var citySearchBoxText; // will be used to store the search bar input. Probably the most valuable variable.
 
 var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div. Links to the submit button. 
@@ -33,10 +26,13 @@ searchSubmitButtonE1.on("click", function(event) { // This begins the whole chai
 })  
 
 function displayCityAndDate(city) {
-    console.log("display city " + city);
+    // triggered by search button click.
 
+    console.log("display city " + city + "what is the date" + dateToday);
+
+    var dateToday = moment().format("MMM DD, YYYY");
     cityNameE1 = document.getElementById("cityName");
-    cityNameE1.textContent = city;
+    cityNameE1.textContent = city + "("+ dateToday + ")__";
 }
 
 function populateSearchHistory() {
