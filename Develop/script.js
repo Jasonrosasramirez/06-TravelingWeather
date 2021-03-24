@@ -6,10 +6,26 @@ var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent 
 
 var APIkey = "22892ae50b03ea6718c5ea35fb5bc1f5"; // my personal API key for open weather
 
-var todayWeatherIconE1 = document.getElementById("todayWeatherIcon");
-var WeatherCloudyIcon = "fas fa-cloud";
 
-todayWeatherIconE1.setAttribute("class", WeatherCloudyIcon);
+// weather condition icon variables. Icons referenced from font awesome. 
+
+var weatherClearSkyIcon = "fas fa-dove"; // using a dove to show clear skies
+var weatherFewCloudsIcon = "fas fa-cloud"; // single cloud
+var weatherScatteredCloudsIcon = "fas fa-cloud-meatball"; // using the cloud meatball 
+var weatherBrokenCloudsIcon = "fas fa-cloud-meatball"; // same icon as scattered clouds
+var weatherShowerRainIcon = "fas fa-cloud-showers-heavy"; // used the heavy showers icon 
+var weatherRainIcon = "fas fa-cloud-rain"; // using the cloud rain icon 
+var weatherThunderstormIcon = "fas fa-bolt"; // using bolt icon
+var weatherSnowIcon = "fas fa-snowflake"; // using snowflake icon
+var weatherMistIcon = "fas fa-smog"; // using the smog icon. This was the closest match
+
+
+var todayWeatherIconE1 = document.getElementById("todayWeatherIcon"); // you need this here 
+// todayWeatherIconE1.setAttribute("class", weatherFewCloudsIcon);
+
+
+
+
 
 
 /* --+--                                      -- Essential Functions --                                      --+-- */
