@@ -23,7 +23,7 @@
     <div class = "container">
         <!-- Where the main body will be display-->
         
-        <div id = "seachForaCitySectionID">
+        <div id = "seachForaCitySectionID" >
             <!-- Displays the search bar and some applicable cities -->
 
             <form  id = "searchBarID"> <!-- action="/action_page.php" removed for testing -->
@@ -35,15 +35,12 @@
 
             <div id = "citySearchHistory">
                 <!-- Local Storage used Here -->
-                <h2> Recent Search History </h2>
+                <h3> Search History </h3>
                 
                 <div id = "searchHistoryContainer1" class = "searchHistoryCityBlock"> <!-- class = "searchHistoryCityBlock" will be added back in -->
                     <p id = "recentCitySearch1"> Search History 1 </p>
                 </div>
                 
-                <div class = "searchHistoryCityBlock">
-                    <p id = "recentCitySearch2"> Search History 2 </p>
-                </div>
 
             </div>
 
@@ -57,20 +54,19 @@
             <div id = "forecastDisplayID">
                 <!-- provides details on the day selected -->
 
-                <div class = "displayWeatherInfo"> 
-                <h2 id = "cityName"> _ </h2>
-                <p class = displayInfo> Temperature: <span id = "temperatureDisplay">  </span> </p>
-                <p class = displayInfo> Humidity: <span id = "humidityDisplay"> </span> </p>
-                <p class = displayInfo> Wind Speed: <span id = "windSpeedDisplay">  </span> </p>
-                <p class = displayInfo> UV Index: <span id = "UVindexDisplay"> </span> </p>
-                </div>
+                <div class = "displayRequestInfo">
 
-                <div class = "displayWeatherInfo"> 
-                    <p> The weather is <span id = "todayWeatherIconStatus"> </span></p>
+                    <h2 id = "cityName">  </h2>
                     <i id = "todayWeatherIcon"></i>
-
                 </div>
-                
+
+                <div class = "displayRequestInfo">
+                    <p class = displayInfo> Temperature: <span id = "temperatureDisplay">  </span> </p>
+                    <p class = displayInfo> Humidity: <span id = "humidityDisplay"> </span> </p>
+                    <p class = displayInfo> Wind Speed: <span id = "windSpeedDisplay">  </span> </p>
+                    <p class = displayInfo> UV Index: <span id = "UVindexDisplay"> </span> </p>
+                </div>
+                                
             </div>
 
             <div id = "forecastDisplayFiveDayID">

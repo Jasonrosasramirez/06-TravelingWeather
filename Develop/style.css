@@ -3,12 +3,25 @@
     --greyJumboColor: rgb(24, 25, 29);
 }
 
+h2, h3, p {
+    font-family: "Brush Script MT", "Brush Script Std", cursive;
+}
 
 .jumbotron {
     text-align: center;
     font-weight: bold;
     color: white;
     background-color: var(--greyJumboColor);
+}
+
+.container {
+    display: flex;
+
+}
+
+#seachForaCitySectionID {
+    width: 500px;
+
 }
 
 label {
@@ -23,6 +36,13 @@ label {
 }
 
 h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--greyJumboColor);
+}
+
+h3 {
+    font-size: 16px;
     font-weight: bold;
     color: var(--greyJumboColor);
 }
@@ -31,7 +51,7 @@ h2 {
     font-size: 12px;
     font-weight: bold;
     color: var(--greyJumboColor);
-    margin: 2px;
+    margin: 4px;
 }
 
 #UVindexDisplay {
@@ -92,7 +112,7 @@ header {
     margin: 4px;
 }
 
-.displayWeatherInfo {
+.displayRequestInfo {
     border: 2px green dashed;
     margin: 4px; 
     padding: 4px;

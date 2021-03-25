@@ -87,11 +87,8 @@ function getForecast(city) {
         humidityDisplayE1.textContent = humidity + " %"; 
         windSpeedDisplayE1.textContent = windSpeed + " MPH";
 
-        //weather icon section. I maight make this its own function 
-        var todayWeatherIconStatusE1 = document.getElementById("todayWeatherIconStatus"); 
+        //weather icon section. 
         var todayWeatherIconE1 = document.getElementById("todayWeatherIcon"); // references the spot for the weather icon :) 
-        
-        todayWeatherIconStatusE1.textContent = weather;
 
         // determines the weather icon
         if (weather == "clear sky") {
