@@ -1,6 +1,7 @@
 :root {
     --blueIconColor: rgb(0, 119, 255); /* Used for the search icon and five day forecast display */ 
     --greyJumboColor: rgb(24, 25, 29);
+    --greySoftBorder: rgb(192, 189, 189);
     --neutralBodyColor: rgba(255, 246, 234, 0.938);
 }
 
@@ -111,8 +112,10 @@ h3 {
 }
 
 .searchHistoryCityBlock {
+    text-align: center;
     margin: 4px;
-    border: 2px var(--greyJumboColor) solid;
+    border: 2px solid;
+    border-color: var(--greySoftBorder) ;
     background-color: white;
 }
 
