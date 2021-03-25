@@ -187,7 +187,7 @@ function getFiveDayForecast(city) {
                 dayReferenceIndex = day5Index; // 35
             }
             
-            // references the day of the ajax results weather
+            // references the day of the ajax results from above
             dayTemp = ajaxResult.list[dayReferenceIndex].main.temp;
             dayHumidity = ajaxResult.list[dayReferenceIndex].main.humidity;
             dayWeather = ajaxResult.list[dayReferenceIndex].weather[0].description;
