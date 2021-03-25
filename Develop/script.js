@@ -214,6 +214,9 @@ function getFiveDayForecast(city) {
         var dayHumidityDisplayE1 = document.getElementById(dayNumberHumidity);
         var dayWeatherIconE1 = document.getElementById(dayNumberWeather); // I work, please don't remove me :D 
 
+        dayTempDisplayE1.textContent = temp;
+        dayHumidityDisplayE1.textContent = humidity;
+
         // determines the weather icon
         if (weather == "clear sky") {
             dayWeatherIconE1.setAttribute("class", weatherClearSkyIcon);
