@@ -1,6 +1,7 @@
 :root {
     --blueIconColor: rgb(0, 119, 255); /* Used for the search icon and five day forecast display */ 
     --greyJumboColor: rgb(24, 25, 29);
+    --neutralBodyColor: rgba(255, 246, 234, 0.938);
 }
 
 h2, h3, p {
@@ -14,14 +15,16 @@ h2, h3, p {
     background-color: var(--greyJumboColor);
 }
 
+body {
+    background-color: var(--neutralBodyColor);
+}
+
 .container {
     display: flex;
-
 }
 
 #seachForaCitySectionID {
     width: 500px;
-
 }
 
 label {
@@ -109,6 +112,8 @@ h3 {
 
 .searchHistoryCityBlock {
     margin: 4px;
+    border: 2px var(--greyJumboColor) solid;
+    background-color: white;
 }
 
 .displayRequestInfo {
