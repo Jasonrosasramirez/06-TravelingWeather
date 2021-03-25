@@ -193,27 +193,23 @@ function getFiveDayForecast(city) {
             dayWeather = ajaxResult.list[dayReferenceIndex].weather[0].description;
 
 
-                    
-            console.log("the day temp is " + dayTemp);
-
             // display information on screen
             dayTempDisplayE1.textContent = dayTemp;
             dayHumidityDisplayE1.textContent = dayHumidity;
 
 
             var dayNumber = "day"+dayIndex+"WeatherIcon"; // this access the day forecast by creating dynamic IDs        
-            day1IconCheck(dayWeather, dayNumber); // this adds the icon
+            day1IconCheck(dayTemp, dayHumidity, dayWeather, dayNumber); // this adds the icon
 
 
             // for debugging 
-            console.log("day index is "+dayIndex+" | Temp is " + dayTemp + " | humidity is " + dayHumidity + " | the weather is " + dayWeather); // remove me when finished debugging :) 
-            console.log("day reference index is set to " + dayReferenceIndex);
+            console.log("day index is "+dayIndex+" | Temp is " + dayTemp + " | humidity is " + dayHumidity + " | day reference is " + dayReferenceIndex + " | the weather is " + dayWeather); // remove me when finished debugging :) 
         }
 
     } 
 
 
-    function day1IconCheck(weather, dayNumberID) { // can probably make this more modular by adding a second or third parameter :)) 
+    function day1IconCheck(temp, humidity, weather, dayNumberID) { // can probably make this more modular by adding a second or third parameter :)) 
 
         todayWeatherIconE1 = document.getElementById(dayNumberID);
 
