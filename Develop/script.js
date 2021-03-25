@@ -3,6 +3,8 @@
 var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div. Links to the submit button. 
 var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent search history
 
+var dayIndex = 1;
+
 var APIkey = "22892ae50b03ea6718c5ea35fb5bc1f5"; // my personal API key for open weather
 
 
@@ -165,6 +167,10 @@ function getFiveDayForecast(city) {
         day1HumidityDisplayE1.textContent = day1Humidity;
 
         day1IconCheck(day1Weather, "day1WeatherIcon"); // this adds the icon 
+
+        console.log("-- pre growth " + dayIndex);
+        dayIndex += 1;
+        console.log("-- post growth " + dayIndex);
     } 
 
 
@@ -252,7 +258,33 @@ $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(wh
 
 
 
+/* working version to day 1 
 
+function fiveDayForecastElementSorting(ajaxResult) {
+        // carriers over the whole json from the ajax above. It's just easier this way. 
+        
+        // access the information from the ajax results
+        var day1Index = 11; //  will probably incorp this into a FOR Loop for the future 
+        var day1Temp = ajaxResult.list[day1Index].main.temp;
+        var day1Humidity = ajaxResult.list[day1Index].main.humidity;
+        var day1Weather = ajaxResult.list[day1Index].weather[0].description;
+        console.log("day 1 is " + day1Temp + "humidity is " + day1Humidity + " the weather is " + day1Weather); // remove me when finished debugging :) 
+
+        // Access the html DOM
+        day1TempDisplayE1 = document.getElementById("day1TempDisplay");
+        day1HumidityDisplayE1 = document.getElementById("day1HumidityDisplay");
+        day1WeatherIconE1 = document.getElementById("day1WeatherIcon");
+
+        // display information on screen
+        day1TempDisplayE1.textContent = day1Temp;
+        day1HumidityDisplayE1.textContent = day1Humidity;
+
+        day1IconCheck(day1Weather, "day1WeatherIcon"); // this adds the icon 
+    } 
+
+
+
+*/
 
 
 
