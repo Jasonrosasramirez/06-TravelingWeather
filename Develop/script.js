@@ -161,7 +161,7 @@ function getFiveDayForecast(city) {
         // intended to store information about the results 
         // var dayTemp;
         // var dayHumidity;
-        // var dayWeather; day5TempDisplay  day5HumidityDisplay 
+        // var dayWeather;  
 
 
         // populates the 5-day forecast
@@ -203,7 +203,13 @@ function getFiveDayForecast(city) {
 
     function day1IconCheck(temp, humidity, weather, dayIndex) { // can probably make this more modular by adding a second or third parameter :)) 
 
+        
+        // dynamic IDs
+        var dayNumberTemp = "day"+dayIndex+"TempDisplay";
+        var dayNumberHumidity = "day"+dayIndex+"HumidityDisplay"; 
         var dayNumberWeather = "day"+dayIndex+"WeatherIcon"; // this access the day forecast by creating dynamic IDs        
+        
+        // access the DOM elements
         var dayWeatherIconE1 = document.getElementById(dayNumberWeather);
 
         // determines the weather icon
