@@ -165,15 +165,23 @@ function getFiveDayForecast(city) {
         day1TempDisplayE1.textContent = day1Temp;
         day1HumidityDisplayE1.textContent = day1Humidity;
 
+        //populates the 5-day forecast
 
-        day1IconCheck(day1Weather, "day"+dayIndex+"WeatherIcon", dayIndex); // this adds the icon 
+        for (dayIndex; dayIndex < 6; dayIndex += 1) {
+            var dayNumber = "day"+dayIndex+"WeatherIcon";        
+            day1IconCheck(day1Weather, dayNumber); // this adds the icon
 
-        dayIndex += 1;
+            console.log("the day index is " + dayIndex);
+
+        }
+         
+
+        
         
     } 
 
 
-    function day1IconCheck(weather, dayNumberID, dayIndex) { // can probably make this more modular by adding a second or third parameter :)) 
+    function day1IconCheck(weather, dayNumberID) { // can probably make this more modular by adding a second or third parameter :)) 
 
         todayWeatherIconE1 = document.getElementById(dayNumberID);
 
