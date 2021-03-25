@@ -158,9 +158,9 @@ function getFiveDayForecast(city) {
         console.log("day 1 is " + day1Temp + "humidity is " + day1Humidity + " the weather is " + day1Weather); // remove me when finished debugging :) 
 
         // Access the html DOM
-        day1TempDisplayE1 = document.getElementById("day1TempDisplay");
-        day1HumidityDisplayE1 = document.getElementById("day1HumidityDisplay");
-        day1WeatherIconE1 = document.getElementById("day1WeatherIcon");
+        var day1TempDisplayE1 = document.getElementById("day1TempDisplay");
+        var day1HumidityDisplayE1 = document.getElementById("day1HumidityDisplay");
+        var day1WeatherIconE1 = document.getElementById("day1WeatherIcon");
 
         // display information on screen
         day1TempDisplayE1.textContent = day1Temp;
