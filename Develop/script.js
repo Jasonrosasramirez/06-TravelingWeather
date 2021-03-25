@@ -158,22 +158,19 @@ function getFiveDayForecast(city) {
         var day5Index = 35;
         var dayReferenceIndex;
 
-        var day1Temp = ajaxResult.list[day1Index].main.temp;
-        var day1Humidity = ajaxResult.list[day1Index].main.humidity;
-        var day1Weather = ajaxResult.list[day1Index].weather[0].description;
-        
+        // intended to store information about the results 
+        var dayTemp;
+        var dayHumidity;
+        var dayWeather;
 
         // Access the html DOM
-        var day1TempDisplayE1 = document.getElementById("day1TempDisplay");
-        var day1HumidityDisplayE1 = document.getElementById("day1HumidityDisplay");
-
-        // display information on screen
-        day1TempDisplayE1.textContent = day1Temp;
-        day1HumidityDisplayE1.textContent = day1Humidity;
+        var dayTempDisplayE1;
+        var dayHumidityDisplayE1;
 
         // populates the 5-day forecast
         for (dayIndex; dayIndex < 6; dayIndex += 1) {
             
+            // used to index reference the day we need topopulate for the forecast
             if (dayIndex == 1) {
                 dayReferenceIndex = day1Index;
             }
@@ -186,9 +183,22 @@ function getFiveDayForecast(city) {
             else if (dayIndex == 4) {
                 dayReferenceIndex = day4Index;
             } else {
+                // the dayIndex must be at 5
                 dayReferenceIndex = day5Index;
             }
             
+            // references the day of the ajax results weather
+            dayTemp = ajaxResult.list[dayReferenceIndex].main.temp;
+            dayHumidity = ajaxResult.list[dayReferenceIndex].main.humidity;
+            day1Weather = ajaxResult.list[dayReferenceIndex].weather[0].description;
+
+            dayTempDisplayE1 = document.getElementById("day1TempDisplay");
+            dayHumidityDisplayE1 = document.getElementById("day1HumidityDisplay");
+                    
+            // display information on screen
+            dayTempDisplayE1.textContent = dayTemp;
+            dayHumidityDisplayE1.textContent = dayHumidity;
+
 
             var dayNumber = "day"+dayIndex+"WeatherIcon"; // this access the day forecast by creating dynamic IDs        
             day1IconCheck(day1Weather, dayNumber); // this adds the icon
@@ -196,7 +206,7 @@ function getFiveDayForecast(city) {
 
 
             // for debugging 
-            console.log("day index is "+dayIndex+" | Temp is " + day1Temp + " | humidity is " + day1Humidity + " | the weather is " + day1Weather); // remove me when finished debugging :) 
+            console.log("day index is "+dayIndex+" | Temp is " + dayTemp + " | humidity is " + dayHumidity + " | the weather is " + dayWeather); // remove me when finished debugging :) 
             console.log("day reference index is set to " + dayReferenceIndex);
         }
 
