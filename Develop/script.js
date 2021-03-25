@@ -163,9 +163,6 @@ function getFiveDayForecast(city) {
         var dayHumidity;
         var dayWeather;
 
-        // Access the html DOM
-        var dayTempDisplayE1 = document.getElementById("day"+dayIndex+"TempDisplay");
-        var dayHumidityDisplayE1 = document.getElementById("day"+dayIndex+"HumidityDisplay");
 
         // populates the 5-day forecast
         for (dayIndex; dayIndex < 6; dayIndex += 1) {
@@ -187,19 +184,12 @@ function getFiveDayForecast(city) {
                 dayReferenceIndex = day5Index; // 35
             }
             
-            // references the day of the ajax results from above
-            dayTemp = ajaxResult.list[dayReferenceIndex].main.temp;
-            dayHumidity = ajaxResult.list[dayReferenceIndex].main.humidity;
+
             dayWeather = ajaxResult.list[dayReferenceIndex].weather[0].description;
 
 
-            // display information on screen
-            dayTempDisplayE1.textContent = dayTemp;
-            dayHumidityDisplayE1.textContent = dayHumidity;
-
-
             var dayNumber = "day"+dayIndex+"WeatherIcon"; // this access the day forecast by creating dynamic IDs        
-            day1IconCheck(dayTemp, dayHumidity, dayWeather, dayNumber); // this adds the icon
+            day1IconCheck(dayTemp, dayHumidity, dayWeather, dayNumber, dayIndex); // this adds the icon
 
 
             // for debugging 
@@ -209,38 +199,42 @@ function getFiveDayForecast(city) {
     } 
 
 
-    function day1IconCheck(temp, humidity, weather, dayNumberID) { // can probably make this more modular by adding a second or third parameter :)) 
+    function day1IconCheck(temp, humidity, weather, dayNumberID, dayIndex) { // can probably make this more modular by adding a second or third parameter :)) 
 
-        todayWeatherIconE1 = document.getElementById(dayNumberID);
+
+        var dayWeatherIconE1 = document.getElementById(dayNumberID);
 
         // determines the weather icon
         if (weather == "clear sky") {
-            todayWeatherIconE1.setAttribute("class", weatherClearSkyIcon);
+            dayWeatherIconE1.setAttribute("class", weatherClearSkyIcon);
         } 
         else if (weather == "few clouds") {
-            todayWeatherIconE1.setAttribute("class", weatherFewCloudsIcon);
+            dayWeatherIconE1.setAttribute("class", weatherFewCloudsIcon);
         }
         else if (weather == "scattered clouds") {
-            todayWeatherIconE1.setAttribute("class", weatherScatteredCloudsIcon);
+            dayWeatherIconE1.setAttribute("class", weatherScatteredCloudsIcon);
         }
         else if (weather == "broken clouds") {
-            todayWeatherIconE1.setAttribute("class", weatherBrokenCloudsIcon);
+            dayWeatherIconE1.setAttribute("class", weatherBrokenCloudsIcon);
         }
-        else if (weather == "shower rain") {
-            todayWeatherIconE1.setAttribute("class", weatherShowerRainIcon);
+        else if (weather == "shower rain" || "light rain") {
+            dayWeatherIconE1.setAttribute("class", weatherShowerRainIcon);
         }
-        else if (weather == "rain") {
-            todayWeatherIconE1.setAttribute("class", weatherRainIcon);
+        else if (weather == "rain" || "moderate rain") {
+            dayWeatherIconE1.setAttribute("class", weatherRainIcon);
         }
         else if (weather == "thunderstorm") {
-            todayWeatherIconE1.setAttribute("class", weatherThunderstormIcon);
+            dayWeatherIconE1.setAttribute("class", weatherThunderstormIcon);
         }
         else if (weather == "snow") {
-            todayWeatherIconE1.setAttribute("class", weatherSnowIcon);
+            dayWeatherIconE1.setAttribute("class", weatherSnowIcon);
         }
         else { // it must be mist 
-            todayWeatherIconE1.setAttribute("class", weatherMistIcon);
+            dayWeatherIconE1.setAttribute("class", weatherMistIcon);
         }
+
+
+
     }
 }
 
@@ -288,6 +282,25 @@ function getUVindex(latitude, longitude) {
 
 // Search History
 $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(where is this displayed to).text(localStorage.getItem(where it was saved to using setItem));
+
+
+
+/* removing these variables to start fresh :)
+    // references the day of the ajax results from above
+        //dayTemp = ajaxResult.list[dayReferenceIndex].main.temp;
+        //dayHumidity = ajaxResult.list[dayReferenceIndex].main.humidity;
+
+    // display information on screen
+        //dayTempDisplayE1.textContent = temp;
+        //dayHumidityDisplayE1.textContent = humidity;
+
+    // Access the html DOM
+        //var dayTempDisplayE1 = document.getElementById("day"+dayIndex+"TempDisplay");
+        //var dayHumidityDisplayE1 = document.getElementById("day"+dayIndex+"HumidityDisplay");
+*/
+
+
+
 
 
 
