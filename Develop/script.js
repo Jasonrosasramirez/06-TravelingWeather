@@ -161,7 +161,7 @@ function getFiveDayForecast(city) {
         // intended to store information about the results 
         var dayTemp;
         var dayHumidity;
-        var dayWeather;
+        // var dayWeather; day5TempDisplay  day5HumidityDisplay 
 
 
         // populates the 5-day forecast
@@ -185,7 +185,7 @@ function getFiveDayForecast(city) {
             }
             
 
-            dayWeather = ajaxResult.list[dayReferenceIndex].weather[0].description;
+            var dayWeather = ajaxResult.list[dayReferenceIndex].weather[0].description;
 
 
             var dayNumber = "day"+dayIndex+"WeatherIcon"; // this access the day forecast by creating dynamic IDs        
