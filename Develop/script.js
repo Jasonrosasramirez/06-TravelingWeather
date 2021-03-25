@@ -159,8 +159,8 @@ function getFiveDayForecast(city) {
         var dayReferenceIndex;
 
         // intended to store information about the results 
-        var dayTemp;
-        var dayHumidity;
+        // var dayTemp;
+        // var dayHumidity;
         // var dayWeather; day5TempDisplay  day5HumidityDisplay 
 
 
@@ -184,12 +184,14 @@ function getFiveDayForecast(city) {
                 dayReferenceIndex = day5Index; // 35
             }
             
+            // access results from ajax pull 
+            var dayTemp = ajaxResult.list[dayReferenceIndex].main.temp;
+            var dayHumidity = ajaxResult.list[dayReferenceIndex].main.temp;
+            var dayWeather = ajaxResult.list[dayReferenceIndex].weather[0].description; // This works! Please do not edit :) 
 
-            var dayWeather = ajaxResult.list[dayReferenceIndex].weather[0].description;
 
-
-            var dayNumber = "day"+dayIndex+"WeatherIcon"; // this access the day forecast by creating dynamic IDs        
-            day1IconCheck(dayTemp, dayHumidity, dayWeather, dayNumber, dayIndex); // this adds the icon
+            
+            day1IconCheck(dayTemp, dayHumidity, dayWeather, dayIndex); // this adds the icon
 
 
             // for debugging 
@@ -199,10 +201,10 @@ function getFiveDayForecast(city) {
     } 
 
 
-    function day1IconCheck(temp, humidity, weather, dayNumberID, dayIndex) { // can probably make this more modular by adding a second or third parameter :)) 
+    function day1IconCheck(temp, humidity, weather, dayIndex) { // can probably make this more modular by adding a second or third parameter :)) 
 
-
-        var dayWeatherIconE1 = document.getElementById(dayNumberID);
+        var dayNumberWeather = "day"+dayIndex+"WeatherIcon"; // this access the day forecast by creating dynamic IDs        
+        var dayWeatherIconE1 = document.getElementById(dayNumberWeather);
 
         // determines the weather icon
         if (weather == "clear sky") {
