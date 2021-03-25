@@ -207,10 +207,12 @@ function getFiveDayForecast(city) {
         // dynamic IDs
         var dayNumberTemp = "day"+dayIndex+"TempDisplay";
         var dayNumberHumidity = "day"+dayIndex+"HumidityDisplay"; 
-        var dayNumberWeather = "day"+dayIndex+"WeatherIcon"; // this access the day forecast by creating dynamic IDs        
+        var dayNumberWeather = "day"+dayIndex+"WeatherIcon"; // I work, please don't remove me :D         
         
         // access the DOM elements
-        var dayWeatherIconE1 = document.getElementById(dayNumberWeather);
+        var dayTempDisplayE1 = document.getElementById(dayNumberTemp);
+        var dayHumidityDisplayE1 = document.getElementById(dayNumberHumidity);
+        var dayWeatherIconE1 = document.getElementById(dayNumberWeather); // I work, please don't remove me :D 
 
         // determines the weather icon
         if (weather == "clear sky") {
