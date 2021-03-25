@@ -1,5 +1,3 @@
-
-
 var searchSubmitButtonE1 = $("#searchSubmitButton"); // used within searchbarID Div. Links to the submit button. 
 var recentCitySearch1E1 = $("#recentCitySearch1"); // displays under the recent search history
 
@@ -19,8 +17,6 @@ var weatherRainIcon = "fas fa-cloud-rain"; // using the cloud rain icon
 var weatherThunderstormIcon = "fas fa-bolt"; // using bolt icon
 var weatherSnowIcon = "fas fa-snowflake"; // using snowflake icon
 var weatherMistIcon = "fas fa-smog"; // using the smog icon. This was the closest match
-
-
 
 
 /* --+--                                      -- Essential Functions --                                      --+-- */
@@ -97,8 +93,6 @@ function getForecast(city) {
         
         todayWeatherIconStatusE1.textContent = weather;
 
-        console.log("what is the weather :) " + weather);
-
         // determines the weather icon
         if (weather == "clear sky") {
             todayWeatherIconE1.setAttribute("class", weatherClearSkyIcon);
@@ -158,11 +152,6 @@ function getFiveDayForecast(city) {
         var day5Index = 35;
         var dayReferenceIndex;
 
-        // intended to store information about the results 
-        // var dayTemp;
-        // var dayHumidity;
-        // var dayWeather;  
-
 
         // populates the 5-day forecast
         for (dayIndex; dayIndex < 6; dayIndex += 1) {
@@ -186,7 +175,7 @@ function getFiveDayForecast(city) {
             
             // access results from ajax pull 
             var dayTemp = ajaxResult.list[dayReferenceIndex].main.temp;
-            var dayHumidity = ajaxResult.list[dayReferenceIndex].main.temp;
+            var dayHumidity = ajaxResult.list[dayReferenceIndex].main.humidity;
             var dayWeather = ajaxResult.list[dayReferenceIndex].weather[0].description; // This works! Please do not edit :) 
 
 
@@ -201,7 +190,7 @@ function getFiveDayForecast(city) {
     } 
 
 
-    function day1IconCheck(temp, humidity, weather, dayIndex) { // can probably make this more modular by adding a second or third parameter :)) 
+    function day1IconCheck(temp, humidity, weather, dayIndex) { // This updates the information on the five day forecast
 
         
         // dynamic IDs
@@ -214,8 +203,9 @@ function getFiveDayForecast(city) {
         var dayHumidityDisplayE1 = document.getElementById(dayNumberHumidity);
         var dayWeatherIconE1 = document.getElementById(dayNumberWeather); // I work, please don't remove me :D 
 
-        dayTempDisplayE1.textContent = temp;
-        dayHumidityDisplayE1.textContent = humidity;
+        // display to the 5 day forecast
+        dayTempDisplayE1.textContent = temp + " F";
+        dayHumidityDisplayE1.textContent = humidity + " %";
 
         // determines the weather icon
         if (weather == "clear sky") {
@@ -245,8 +235,6 @@ function getFiveDayForecast(city) {
         else { // it must be mist 
             dayWeatherIconE1.setAttribute("class", weatherMistIcon);
         }
-
-
 
     }
 }
@@ -295,57 +283,5 @@ function getUVindex(latitude, longitude) {
 
 // Search History
 $("#recentCitySearch1").text(localStorage.getItem("searchInputStorage")); //$(where is this displayed to).text(localStorage.getItem(where it was saved to using setItem));
-
-
-
-/* removing these variables to start fresh :)
-    // references the day of the ajax results from above
-        //dayTemp = ajaxResult.list[dayReferenceIndex].main.temp;
-        //dayHumidity = ajaxResult.list[dayReferenceIndex].main.humidity;
-
-    // display information on screen
-        //dayTempDisplayE1.textContent = temp;
-        //dayHumidityDisplayE1.textContent = humidity;
-
-    // Access the html DOM
-        //var dayTempDisplayE1 = document.getElementById("day"+dayIndex+"TempDisplay");
-        //var dayHumidityDisplayE1 = document.getElementById("day"+dayIndex+"HumidityDisplay");
-*/
-
-
-
-
-
-
-
-
-/* working version to day 1 
-
-function fiveDayForecastElementSorting(ajaxResult) {
-        // carriers over the whole json from the ajax above. It's just easier this way. 
-        
-        // access the information from the ajax results
-        var day1Index = 11; //  will probably incorp this into a FOR Loop for the future 
-        var day1Temp = ajaxResult.list[day1Index].main.temp;
-        var day1Humidity = ajaxResult.list[day1Index].main.humidity;
-        var day1Weather = ajaxResult.list[day1Index].weather[0].description;
-        console.log("day 1 is " + day1Temp + "humidity is " + day1Humidity + " the weather is " + day1Weather); // remove me when finished debugging :) 
-
-        // Access the html DOM
-        day1TempDisplayE1 = document.getElementById("day1TempDisplay");
-        day1HumidityDisplayE1 = document.getElementById("day1HumidityDisplay");
-        day1WeatherIconE1 = document.getElementById("day1WeatherIcon");
-
-        // display information on screen
-        day1TempDisplayE1.textContent = day1Temp;
-        day1HumidityDisplayE1.textContent = day1Humidity;
-
-        day1IconCheck(day1Weather, "day1WeatherIcon"); // this adds the icon 
-    } 
-
-
-
-*/
-
 
 
