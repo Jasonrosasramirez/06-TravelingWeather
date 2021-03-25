@@ -164,45 +164,45 @@ function getFiveDayForecast(city) {
         var dayWeather;
 
         // Access the html DOM
-        var dayTempDisplayE1;
-        var dayHumidityDisplayE1;
+        var dayTempDisplayE1 = document.getElementById("day"+dayIndex+"TempDisplay");
+        var dayHumidityDisplayE1 = document.getElementById("day"+dayIndex+"HumidityDisplay");
 
         // populates the 5-day forecast
         for (dayIndex; dayIndex < 6; dayIndex += 1) {
             
             // used to index reference the day we need topopulate for the forecast
             if (dayIndex == 1) {
-                dayReferenceIndex = day1Index;
+                dayReferenceIndex = day1Index; // 3
             }
             else if (dayIndex == 2) {
-                dayReferenceIndex = day2Index;
+                dayReferenceIndex = day2Index; // 11
             }
             else if (dayIndex == 3) {
-                dayReferenceIndex = day3Index;
+                dayReferenceIndex = day3Index; // 19
             }
             else if (dayIndex == 4) {
-                dayReferenceIndex = day4Index;
+                dayReferenceIndex = day4Index; // 27
             } else {
                 // the dayIndex must be at 5
-                dayReferenceIndex = day5Index;
+                dayReferenceIndex = day5Index; // 35
             }
             
             // references the day of the ajax results weather
             dayTemp = ajaxResult.list[dayReferenceIndex].main.temp;
             dayHumidity = ajaxResult.list[dayReferenceIndex].main.humidity;
-            day1Weather = ajaxResult.list[dayReferenceIndex].weather[0].description;
+            dayWeather = ajaxResult.list[dayReferenceIndex].weather[0].description;
 
-            dayTempDisplayE1 = document.getElementById("day1TempDisplay");
-            dayHumidityDisplayE1 = document.getElementById("day1HumidityDisplay");
+
                     
+            console.log("the day temp is " + dayTemp);
+
             // display information on screen
             dayTempDisplayE1.textContent = dayTemp;
             dayHumidityDisplayE1.textContent = dayHumidity;
 
 
             var dayNumber = "day"+dayIndex+"WeatherIcon"; // this access the day forecast by creating dynamic IDs        
-            day1IconCheck(day1Weather, dayNumber); // this adds the icon
-
+            day1IconCheck(dayWeather, dayNumber); // this adds the icon
 
 
             // for debugging 
