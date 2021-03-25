@@ -150,12 +150,18 @@ function getFiveDayForecast(city) {
     function fiveDayForecastElementSorting(ajaxResult) {
         // carriers over the whole json from the ajax above. It's just easier this way. 
         
-        // access the information from the ajax results
-        var day1Index = 11; //  will probably incorp this into a FOR Loop for the future 
+        // access the information from the ajax results. Use terminal to view the direct information 
+        var day1Index = 3; // This references from the json array.
+        var day2Index = 11;
+        var day3Index = 19;
+        var day4Index = 27;
+        var day5Index = 35;
+        
+
         var day1Temp = ajaxResult.list[day1Index].main.temp;
         var day1Humidity = ajaxResult.list[day1Index].main.humidity;
         var day1Weather = ajaxResult.list[day1Index].weather[0].description;
-        console.log("day 1 is " + day1Temp + "humidity is " + day1Humidity + " the weather is " + day1Weather); // remove me when finished debugging :) 
+        
 
         // Access the html DOM
         var day1TempDisplayE1 = document.getElementById("day1TempDisplay");
@@ -165,19 +171,19 @@ function getFiveDayForecast(city) {
         day1TempDisplayE1.textContent = day1Temp;
         day1HumidityDisplayE1.textContent = day1Humidity;
 
-        //populates the 5-day forecast
-
+        // populates the 5-day forecast
         for (dayIndex; dayIndex < 6; dayIndex += 1) {
-            var dayNumber = "day"+dayIndex+"WeatherIcon";        
+            var dayNumber = "day"+dayIndex+"WeatherIcon"; // this access the day of the forecast using variable name indexing.        
             day1IconCheck(day1Weather, dayNumber); // this adds the icon
 
+
+
+            // for debugging 
             console.log("the day index is " + dayIndex);
+            console.log("day 1 is " + day1Temp + " humidity is " + day1Humidity + " the weather is " + day1Weather); // remove me when finished debugging :) 
 
         }
-         
 
-        
-        
     } 
 
 
