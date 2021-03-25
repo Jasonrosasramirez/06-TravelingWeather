@@ -4,6 +4,7 @@
     --greySoftBorder: rgb(192, 189, 189);
     --neutralBodyColor: rgba(255, 246, 234, 0.938);
     --whiteCardColor: rgb(252, 252, 252);
+    --pinkHoverColor: rgb(241, 44, 77);
 }
 
 h2, h3, p {
@@ -39,6 +40,11 @@ label {
     color:white;
     border: none;
 }
+
+#searchSubmitButton:hover {
+    background-color: var(--pinkHoverColor);
+}
+
 
 h2 {
     font-size: 20px;
@@ -83,13 +89,11 @@ h3 {
     padding: 2px;
     display: flex;
     justify-content: space-evenly;
-
 }
 
 #forecastDisplayContainerSectionID {
     background-color: var(--whiteCardColor);
 }
-
 
 
 .cardBorder {
@@ -98,6 +102,10 @@ h3 {
     border-radius: 8px;
     background-color: var(--blueIconColor);
     margin: 4px;
+}
+
+.cardBorder:hover {
+    border: 2px var(--pinkHoverColor) solid;
 }
 
 .cardBorder p {
@@ -121,12 +129,20 @@ h3 {
     border: 2px var(--greySoftBorder) solid;
 }
 
+#forecastDisplayID:hover {
+    border: 2px var(--pinkHoverColor) solid;
+}
+
 .searchHistoryCityBlock {
     text-align: center;
     margin: 4px;
     border: 2px solid;
     border-color: var(--greySoftBorder);
     background-color: var(--whiteCardColor);
+}
+
+.searchHistoryCityBlock:hover {
+    border: 2px var(--pinkHoverColor) solid;
 }
 
 .displayRequestInfo {
