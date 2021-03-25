@@ -156,7 +156,7 @@ function getFiveDayForecast(city) {
         var day3Index = 19;
         var day4Index = 27;
         var day5Index = 35;
-        
+        var dayReferenceIndex;
 
         var day1Temp = ajaxResult.list[day1Index].main.temp;
         var day1Humidity = ajaxResult.list[day1Index].main.humidity;
@@ -173,15 +173,31 @@ function getFiveDayForecast(city) {
 
         // populates the 5-day forecast
         for (dayIndex; dayIndex < 6; dayIndex += 1) {
-            var dayNumber = "day"+dayIndex+"WeatherIcon"; // this access the day of the forecast using variable name indexing.        
+            
+            if (dayIndex == 1) {
+                dayReferenceIndex = day1Index;
+            }
+            else if (dayIndex == 2) {
+                dayReferenceIndex = day2Index;
+            }
+            else if (dayIndex == 3) {
+                dayReferenceIndex = day3Index;
+            }
+            else if (dayIndex == 4) {
+                dayReferenceIndex = day4Index;
+            } else {
+                dayReferenceIndex = day5Index;
+            }
+            
+
+            var dayNumber = "day"+dayIndex+"WeatherIcon"; // this access the day forecast by creating dynamic IDs        
             day1IconCheck(day1Weather, dayNumber); // this adds the icon
 
 
 
             // for debugging 
-            console.log("the day index is " + dayIndex);
-            console.log("day 1 is " + day1Temp + " humidity is " + day1Humidity + " the weather is " + day1Weather); // remove me when finished debugging :) 
-
+            console.log("day index is "+dayIndex+" | Temp is " + day1Temp + " | humidity is " + day1Humidity + " | the weather is " + day1Weather); // remove me when finished debugging :) 
+            console.log("day reference index is set to " + dayReferenceIndex);
         }
 
     } 
