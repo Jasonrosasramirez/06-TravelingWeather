@@ -27,7 +27,7 @@
             <!-- Displays the search bar and some applicable cities -->
 
             <form  id = "searchBarID"> <!-- action="/action_page.php" removed for testing -->
-                <label for = "search"> Type a City Name: </label> <br>
+                <label for = "search"> Search for a City: </label> <br>
                 <input type="text" id = "searchInput" placeholder="Search.." name="search">
                 <button type="submit" id = "searchSubmitButton"> <i class="fas fa-search-location"></i> </button> <!-- Icon from font awesome -->
             </form>
@@ -35,7 +35,7 @@
 
             <div id = "citySearchHistory">
                 <!-- Local Storage used Here -->
-                <H3> Recent Search History </H3>
+                <h2> Recent Search History </h2>
                 
                 <div id = "searchHistoryContainer1" class = "searchHistoryCityBlock"> <!-- class = "searchHistoryCityBlock" will be added back in -->
                     <p id = "recentCitySearch1"> Search History 1 </p>
@@ -59,10 +59,10 @@
 
                 <div class = "displayWeatherInfo"> 
                 <h2 id = "cityName"> _ </h2>
-                <p> Temperature: <span id = "temperatureDisplay">  </span> </p>
-                <p> Humidity: <span id = "humidityDisplay"> </span> </p>
-                <p> Wind Speed: <span id = "windSpeedDisplay">  </span> </p>
-                <p> UV Index: <span id = "UVindexDisplay"> </span> </p>
+                <p class = displayInfo> Temperature: <span id = "temperatureDisplay">  </span> </p>
+                <p class = displayInfo> Humidity: <span id = "humidityDisplay"> </span> </p>
+                <p class = displayInfo> Wind Speed: <span id = "windSpeedDisplay">  </span> </p>
+                <p class = displayInfo> UV Index: <span id = "UVindexDisplay"> </span> </p>
                 </div>
 
                 <div class = "displayWeatherInfo"> 
