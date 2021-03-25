@@ -73,13 +73,48 @@ h3 {
     border-radius: 4px;
 }
 
-.cardBorder {
-    width: 160px;
-    background-color: var(--blueIconColor);
-    color: white;
+#forecastDisplayFiveDayCardsID {
     margin: 2px;
+    padding: 2px;
+
+    display: flex;
+    justify-content: space-evenly;
+
 }
 
+.cardBorder {
+    height: 150px;
+    width: 140px;
+    border-radius: 8px;
+    background-color: var(--blueIconColor);
+    margin: 4px;
+}
+
+.cardBorder p {
+    color: white;
+    margin: 4px; 
+}
+
+#seachForaCitySectionID,
+#forecastDisplayContainerSectionID {
+    margin: 10px;
+}
+
+#searchBarID,
+#citySearchHistory,
+#forecastDisplayFiveDayID,
+#forecastDisplayID {
+    margin: 10px;
+}
+
+.searchHistoryCityBlock {
+    margin: 4px;
+}
+
+.displayRequestInfo {
+    margin: 4px; 
+    padding: 4px;
+}
 
 /* debugging borders. Remove me once no longer needed :) */ 
 
@@ -96,7 +131,6 @@ header {
 #seachForaCitySectionID,
 #forecastDisplayContainerSectionID {
     border: 2px blue dashed;
-    margin: 10px;
 }
 
 #searchBarID,
@@ -104,29 +138,19 @@ header {
 #forecastDisplayFiveDayID,
 #forecastDisplayID {
     border: 2px purple dotted;
-    margin: 10px;
 }
 
 .searchHistoryCityBlock {
     border: 2px green dotted;
-    margin: 4px;
 }
 
 .displayRequestInfo {
     border: 2px green dashed;
-    margin: 4px; 
-    padding: 4px;
 }
 
 
 #forecastDisplayFiveDayCardsID {
     border: 2px green dotted;
-    margin: 2px;
-    padding: 2px;
-
-    display: flex;
-    justify-content: space-evenly;
-
 }
 
 .cardBorder {
