@@ -3,6 +3,7 @@
     --greyJumboColor: rgb(24, 25, 29);
     --greySoftBorder: rgb(192, 189, 189);
     --neutralBodyColor: rgba(255, 246, 234, 0.938);
+    --whiteCardColor: rgb(252, 252, 252);
 }
 
 h2, h3, p {
@@ -80,11 +81,16 @@ h3 {
 #forecastDisplayFiveDayCardsID {
     margin: 2px;
     padding: 2px;
-
     display: flex;
     justify-content: space-evenly;
 
 }
+
+#forecastDisplayContainerSectionID {
+    background-color: var(--whiteCardColor);
+}
+
+
 
 .cardBorder {
     height: 150px;
@@ -111,12 +117,16 @@ h3 {
     margin: 10px;
 }
 
+#forecastDisplayID {
+    border: 2px var(--greySoftBorder) solid;
+}
+
 .searchHistoryCityBlock {
     text-align: center;
     margin: 4px;
     border: 2px solid;
-    border-color: var(--greySoftBorder) ;
-    background-color: white;
+    border-color: var(--greySoftBorder);
+    background-color: var(--whiteCardColor);
 }
 
 .displayRequestInfo {
