@@ -61,7 +61,7 @@ function getForecast(city) {
     $.ajax({ // Used in asynchronous (continious updating) operations with weather application
         
         type: "GET", // read information 
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIkey + "&units=imperial", // the API being used. citySearchBoxText from submitSearchFunctionE1 as city. My API key. Setting the units to imperial   
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIkey + "&units=imperial", // the API being used. citySearchBoxText from submitSearchFunctionE1 as city. My API key. Setting the units to imperial   
         dataType: "json", // return in this formating  
         
         success: function (result) { // if the above was successful 
@@ -130,7 +130,7 @@ function getFiveDayForecast(city) {
     $.ajax({
         // Used in asynchronous (continious updating) operations with weather application
         type: "GET", // read information 
-        url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey + "&units=imperial", 
+        url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey + "&units=imperial", 
         dataType: "json", // in this formating  
         success: function (result) {
             console.log(result);
@@ -243,7 +243,7 @@ function getUVindex(latitude, longitude) {
     $.ajax({
         
         type: "GET", 
-        url: "http://api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkey, 
+        url: "https://api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIkey, 
         dataType: "json", 
         success: function (result) {
             
